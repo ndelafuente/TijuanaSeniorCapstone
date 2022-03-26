@@ -1,0 +1,32 @@
+python3 -m pip install --user --upgrade pip
+
+python3 -m pip --version
+
+python3 -m venv --copies --clear venv
+
+source venv/bin/activate
+
+python3 -m pip install -r requirements.txt
+
+# brew install npm
+
+### Starting django project
+django-admin startproject django_react .
+
+# Start a new app
+django-admin startapp contribute
+
+# After adding a model
+python manage.py makemigrations contribute
+python manage.py migrate
+
+# Disable browsable API
+#REST_FRAMEWORK = {
+#    'DEFAULT_RENDERER_CLASSES': (
+#        'rest_framework.renderers.JSONRenderer',
+#    )
+#}
+
+# Run test
+coverage run --source='.' manage.py test
+coverage report
