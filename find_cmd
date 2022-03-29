@@ -1,0 +1,62 @@
+#!/bin/bash
+# Author: Nicolas de la Fuente
+# Created: 27 March 2022
+
+# This script takes in the name of a command, a version number, and
+# the name of a preferences file. It finds all instances of the command
+# which match the specified version, then gives the user the option to
+# choose a bin folder to be permanently added to their PATH
+
+# Ensure correct usage
+if (( $# !=3 )); then
+    echo "Usage: $0 command version pref_file"
+fi
+
+cmd=$1
+version=$2
+pref_file=$3
+
+echo "Attempting to find all instances of $cmd version $2"
+
+declare -a path_array
+
+# Find the path for all available instances of cmd
+for cmd_path in $(which -a $cmd); do
+    # If the instance is the right version, add it's path to the array
+    if [[ $($cmd_path --version) =~ $version ]]; then
+        path_array+=($cmd_path)
+    fi
+done
+
+
+# Ensure there is at least one path to choose from
+if !(( ${#path_array} > 0 )); then
+    echo "Unable to find any instances of $cmd version $version"
+    exit;
+fi
+
+while true; do
+    echo "Enter the number of the desired option, or ctrl+C to quit:"
+    select cmd_path in ${path_array[@]}; do
+        echo "You selected $cmd_path ($($cmd_path --version))"
+        while true; do
+            # Remove the trailing '/' and cmd name from the path
+            dir_path=${cmd_path: 0: (( ${#cmd_path}-${#cmd} ))}
+            
+            # Get confirmation from the user
+            read -p "Add $dir_path to PATH? (y/N) " confirmation
+            if [[ $confirmation == [yY] ]]; then
+                # Add the new path to the specified preference file
+                echo -e "\n""# Setting path for $cmd $version" >> $pref_file
+                echo "export \"PATH=${dir_path}:"'$PATH'\" >> $pref_file
+                exit
+            elif [[ $confirmation == [nN] ]]; then
+                break
+            fi
+            echo "Invalid input"
+        done
+        break
+    done
+done
+
+restart
