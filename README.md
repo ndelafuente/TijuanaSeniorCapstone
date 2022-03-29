@@ -1,6 +1,6 @@
 # This is the Tijuana River Watershed Monitoring Project
 
-[This](https://www.valentinog.com/blog/drf/#django-and-react-together) is the tutorial by Valentino that I used to initialize the project.
+I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-and-react-together) to initialize the project.
 
 ### Requirements
 
@@ -13,20 +13,53 @@
 2. **Python 3.10** ([install here](https://www.python.org/downloads/))
 
 ### Setup
-1. Run the following commands to set up your python virtual environment and install dependencies
+1. Clone this repository into your desired folder and cd into it
+    **Are you now in `TijuanaRiverWatershed`? Okay, let's begin**
+
+1. If you have Anaconda installed, you should run the following to deactivate the conda virtual environment: `(base)`
+    
+        conda deactivate
+    
+    And to stop Anaconda from automatically activating on startup:
+    
+        conda config --set auto_activate_base false
+
+1. Ensure you are using Python 3.10.x
+    
+        python3 --version
+    
+    If `Python 3.10.x` is not printed, ensure you are in the base directory of this folder, and run one of the following:
+    
+        ./find_cmd python3 3.10 ~/.zprofile; restart # for zsh
+    [//]: <> (invisible comment to break code block)
+        ./find_cmd python3 3.10 ~/.bash_profile; restart # for bash
+    
+    *You should now hopefully be using Python 3.10*
+
+1. Run the following commands to set up your python virtual environment and install the required dependencies
 
         python3 -m pip install --user --upgrade pip
-        python3 -m venv --copies --clear venv
+        python3 -m venv --clear venv
         source venv/bin/activate
         python3 -m pip install -r requirements.txt
 
-2. From the main folder run the following to set up JavaScript libraries
+1. Still in the main folder run the following to set up JavaScript libraries
 
-        cd ./frontend && npm init -y
-        npm i webpack webpack-cli --save-dev
-        npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
-        npm i react react-dom --save-dev
+        cd ./frontend && npm install --no-fund && cd ..
 
+
+### Running the server
+1. Move into the frontend folder, run webpack, then move back up to the home folder
+
+        cd ./frontend && npm run dev && cd ..
+
+1. Migrate the database
+
+        python manage.py migrate
+
+1. Start the development server
+
+        python manage.py runserver
 
 ### Additional Documentation
 
