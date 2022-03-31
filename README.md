@@ -35,7 +35,9 @@ I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-
     b) If you still do not have the correct version, ensure you are in the base directory of this folder, and run one of the following:
     
         ./find_cmd python3 3.10 ~/.zprofile # for zsh
+        
     [//]: <> (invisible comment to break code block)
+    
         ./find_cmd python3 3.10 ~/.bash_profile # for bash
     
     Then restart your application.
