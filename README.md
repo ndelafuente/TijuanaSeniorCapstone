@@ -28,11 +28,17 @@ I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-
     
         python3 --version
     
-    If `Python 3.10.x` is not printed, ensure you are in the base directory of this folder, and run one of the following:
+    If `Python 3.10.x` is not printed:
     
-        ./find_cmd python3 3.10 ~/.zprofile; restart # for zsh
+    a) If you just downloaded Python, quit the application you are using, and reopen it
+    
+    b) If you still do not have the correct version, ensure you are in the base directory of this folder, and run one of the following:
+    
+        ./find_cmd python3 3.10 ~/.zprofile # for zsh
     [//]: <> (invisible comment to break code block)
-        ./find_cmd python3 3.10 ~/.bash_profile; restart # for bash
+        ./find_cmd python3 3.10 ~/.bash_profile # for bash
+    
+    Then restart your application.
     
     *You should now hopefully be using Python 3.10*
 
