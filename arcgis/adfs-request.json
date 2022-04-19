@@ -1,0 +1,68 @@
+{
+    "url": "https://adfs.sandiego.edu/adfs/ls/",
+
+    "request1": {
+        "client-request-id": "ca80db5f-5ea7-4927-8d04-c7bd1e82467d",
+        "wa": "wsignin1.0",
+        "wtrealm": "urn:federation:MicrosoftOnline",
+        "username": "ndelafuente@sandiego.edu",
+
+        "cbcxt": "",
+        "mkt": "",
+        "lc": "",
+
+        "wctx": {
+            "LoginOptions": 3,
+            "estsredirect": 2,
+            "estsrequest": "rQQIARAApVU5yPQIAf2-_a_dn11drdZGRASLJf-X-xgQzCSTY3JNjkkmKQyZ3Jncx0wSEESLFWTRxmZLG0ELwUJBEMRG-G22VmysxFWwXMTCDws7K9vHe8WDd7y823xhGoI6yuO0eVUF7fAq6MM0H16FTdV__uW7_h-_9frH3_iq-OHT3_36i9_mvvmTezobx3bYPDz8T93DkAV9XqcPfTyMD00wjRn8MARV-TDkaZ3Xv73_nO8m_GzVltqOMa-vQ_fx_f1f7u__8MYz85EH__MNbOrrTRMM-bCpgyoeNmO4MWlF3kCvoP8geQQkTV8F42aqhzYO8ySPo4-e_O0tmFOTJArFii2HRaX64cKz1vk8WuE4OVzrbONFgHBl54S6u4isRzNHwCxjcUVZLjTZFcJl5MaC2IDV0mR0bQLvENuI4EnjWGE88hXFoLG9B7TqCLLnuXCPao9hfYGG2qlqaD7iZpRdIyDMWDw84UNAmohWXvwJC2Gp4dpkhcVzARc8j809dPLUJeFv515rrv50tQOoCQxtxEsBJ1QJIN3JtGuKsF3Ll2OGaWC9EuatZxgqIcI7XKTD_LKlsZxBx20BpyiNeDBR22hNMZPgzZeEYvErSykIZ9DodZwMeqvoZjxwFk-pk-TCkzuocY7tyAufjtJeXaJ9QtkLslWWnqNlC_bogKy1S3u7nOcBHGS2oM_NnkkXsSYa9JorxzFKJ1OEqioMD0RDUzvjEGSnbABERIvrsFYtQ98RCqqLKXdWrBZfYco6mA18NKUQ2JkmzBZCtIbNvrV8VyH7uSDHymcm8XoxBpWaEgucET2bkmwLtW4gIoeQcvyGWVtuLf2mqGo4dCo0dUYIVRK8Oq3bnDcJMGvmaCaMwwB13RWIJcTd0_urFXQ7DgkUTm66BMKugC2JnEk2oMlBHWHjM6WeCCARxgyYOp2Zm32pq-PZ8WoR1ex9N_OZ3TVRf9gexzJPQvKMoU4qwZZR0B0T76qr3RiQWPO9mCoY0x9p2mTN2wVrRo_C_XlWPYEAPbi72eGw5uOqkwqdTcyk2Gh8PSNjC3sHeC481ATUKsLB5SgTl9WI1DMWLspSDHoq0NnpMNUTDbAAokeaagxkDZmctOMjTXKRW8GKW0WSnGUMiTFqM1SLkE67xozVmUKyoviq8isawge7Oh4LHyvKlHT1CsLUccexutp00Ggb3BgFB7W_oTWLONrBioXH0kbddblWMxPhai0I07FwbIH2pX1LpmuA-DfZw25uW1qJKajAvpQnXQHTaIsZgLoEbuebaQigJucIqmQCftMIW4gQlW4qY_0q43sIQbhLh-_C3NYKioe9pVw6GifaCGMCzZmJwhMLuQOh2KJMilHSdEuhFy6t9_msIikz20irb1f_4OQ3ByKxZidFxNDXMIgmTTY1Z58gLvRtzSh1XflgZ5z9IurTyo6WQ2s2zcpBYGnMRsNOjQTvRYUi91MM1ZHPONSKsMnBBT3ckVUYxALeogd5HNbAQkog1l3PvNHRcpLNU5ku3ICNZcYtx1bsgcAEGEaUHDA6Q5Kn6JxY8kFhyk5hDcdHm4zjY5AcDVpPQEolS8LsNhpnSnFSpORjVGQid0mkOI74VEtxSlMQ7b76-ZOvJDEaQxiJAMkZTwCUjCKAxGAUiEA8iAgMhEAU-_OT9-ooLoNkiusx_vp_dzuOpo-fvv3Xp2-DzzZvvvny3c--9-JLd58-vf_Rs8fl_xfwiy__9JMfst_3v0dEn3xw9_rZw7mWr31Hlu7RjkcnQd4nQJB530O82_UkjHygFQIBE4uWTbevIRvoB8_fef387h_P77_74u6jF3e_euv_v47fvHP36Wd-_-GfvvOzX37wd-Hf0"
+        }
+    },
+
+    "arcgis-request": {
+        "url": "https://adfs.sandiego.edu/adfs/ls/?client-request-id=89b649ee-847f-4f5c-ba19-07f9d65a138a&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline&wctx=LoginOptions%3D3%26estsredirect%3d2%26estsrequest%3drQQIARAApZU5rPT0FcXf49vgEySQNNARKa3fm793jxQJjz3jGY-X8Tb2WEiW1_Ey3vdp0kRKCEKipqRIESkpUqSgSKKUhIIqkVKmirIJOqDiiYKOKu3VPTrST_ec-_xm-UbfukWQhOfyLner9s5t_HPS3vll3vzg-av_2_3-nZ_-7G35ozeefflX-4e__PUtHXdd1S7v779Td9_GbpMU5_smbLv70u27GL5v3fxy3ybnIin-fPuakwznMWvTaRaUvF0F6qe3t_-8vf37C0-0hz34qxewvimWpdsm7bJw87Bddv5So0VhCe7AN5MkgKKyyd1u2RdtFfpJlITBB4_-8xK8kaIo8Hc5e2lniWrajGN17RoLsVh2dC2aWUw4Z2x2V-tAZEZ3i2jcWVP0qwrqYzqh2XjdXE8CERq7hhkidT3DBm0xGdAn1Aw5eQ5QOSuNxM_zNFWOeH8VyDUJZzbJ2p5VwQXUrq6zVtq-6slWMtI9uV2f3WOnCYDkWmg_1NGmDHA-E6soqxk1y5AAdy51ljiGq4Td3BqIoZqsQjQPVn6EaFU6ZZQy9d3cn1gQeXNAzXEXi0OVchLHKSmKS9IFRWyyLFvJv8YV6IzL5ggzGm_qVQzDahRLJFQnFXMckcMsXeGT7mnROYe89YSpcpZ7YrZlyeLoomUhVnHNXl2gSV7mMCeC0xK_7EalF1ca46VYTIVFpjGxvBYKE92b9IHKQO2Fzgk0eiM6VeRskEUx0Mx5TQOaYyKC7geyXEdVRO0Dp96uQC3741bg9J2yiS4qx5kW4-1lAjs7QyHhxUgmvYoO2MQLJhXbtcrrKaRZe8XIc7gYp06QAMeku1Hyj4McJVpIj4IZzCBE1-W4UvfyhTOEB1IZSzRbq15wWVI7AQ0HkXJOIylmUO9cxGV9YkXWuRZWIRgQtM6v0WrXWBCvxS1FCxpLU1rPyUNe5wtWLzeDNlERs-i1KqlY5lpVZcAJ7TrkPb1yON_0191wzoIaNjHTxHay64IMDvxhhts-U1dhRTSJRUKgDgWtFbCNpgqmsjcZlAgC3NofjWE3ycdCODBajMmpNbA8bkdGGFgpctokXrNPxjQ-8CId5wXVnoYTZ4WaVUdItHg4rf0RWvfhrtEuW07tLmxL5UzouIK0k_INYWuly_cjMFAfZZrtXg0NUDNXEb8gwLMzfw14Vq_KtKZFekJ8Pt-exv3Q73ljFAibn045qnr2Geri8LpfORc7xFXRl8ftJVn0ZoiJoEKVQsN8uotR30eQqykc60MIKG5aENROJ7AA6-p9KbGlLeyoabGlr9GYjEAbnBTTSki1HdisdlmF5DWO677QV0SeuacoLvpI0cpm4snA5RegcUisR0u0PlEJU8ViPQ0A2BGspP4IVdyq20y8GvQXsMi38_GEFqcTHx5HvD7NMiZESaDYeNzqCZWgg74_JLnxkDMFYDF0OIoNhke0mCxWG7Q8ApTqiE33QNqg9yXeVJyj-aQ64wm8C2FLts6xeqCtIuOGC8kOM6MLuX-WBJ7mx1xLtarLCGrSD7s1pLI7lV1Dab_BNI_mQiZGoMKxPQLdcfyGBYzc9_KFKlU69mlEFANOsla-UNdgqoaQ6daKcVx1LKUrjCrgYkre_e7Rj6MQDQFGIlDk4RGEkkEAkRiMQsECdwMCW4AFiv3j0etFEF7cqA-LLnzr294Og_7Txy__6_HLiyfLF198_ur3X3_25s0Xj28_fPLQ_L-BXvvRr_74W_ndr_79h89X5M3HT-5zOZnxK3UR5qOwQhR_YjzJLnNiIg-BymZbFMyy2ikuqNGfYEvw_tNXPn5689nT2188u_ng2c1HL_3_r-NPr9x88b13_vbeXz755Of_3X4N0&cbcxt=&username=ndelafuente%40sandiego.edu&mkt=&lc=",
+        "code": "https://adfs.sandiego.edu/adfs/ls/?client-request-id=e0644436-d5b5-4f84-a703-9327abcd41e8&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline&wctx=LoginOptions%3D3%26estsredirect%3d2%26estsrequest%3drQQIARAApdI_yONkAMfx9vr2fc-XO-_PdA6Cg-CUNv-bBA5M-zZNTZukb5vm2iU8TZ40eZt_zfMkbbM4KOimoNONgoh_JsHFRRGnA-EWF0EQRTgODm4RXp08brjNyfXH97d9TmvSKwUCiRfCddqKQYZaIHfXIWq5aZzfPr3Jn3m_ffPzu8ZnjY_e-PIn-dEXdTnAOENSu_2fvzYKQB4m63YOEW6noMAB3UYgjtooXCdh8kP9ljPbLt5axb7e1_TigPx7D-v1R_X6L1ea02cd_c8VrsgTKQUoRFICYogk7EpTeTySqBb1fAk9wk_zGGCpSFAG3dAPoXe_8VWDVnTf99xhfBahgy7maDM4my0DbQcP3Skkl1tKwKvcX-FyqQP_fG1vlxZf2IDpaV13HZTgXldZ8LigmJXNTGWGyj2kqCa5ALOuJiyrTm4tesvAIehlKVZ8LmiHchS6-w2fcGSa-Oeo4CaDVCmFBWYtrTrvaYswLJM94ehkGi-WOxqGM3MYCFo3SQOTNO0cKZXX23Wtfs6sq_lwXg10Mtn3ornbpwAFmXFEagRmZF_dD9mg3LpY4Ud8h3TBLpgDJgKyatPMRt-vR5aIOT-n5GAOO4etOHS5M3Z8MLKQJTu604NI2M24raEkTjTGw5EhypS3XQXO0OwMLza2eVFZyFBGDk0dsnQz7RqiozKDLN5OjEgWiXw1sHGq-5t9Ac_NvjonElyomyD3A9uYpdWMtna5adDZdJ91ejQA4VjObIbeCBe0V5GyV05oJ4oyrKZYaH3deN2HLKQ4gSH8Fe8TrOB5hMDRLOGRPPA6HEmRLPd7407iwQj4BUwwfPOFO-gVD4-uPT66Rjalq1dPb964c_Ja7fKo_knzmdzx3782P_3uxuidD17l3v7rbu1Bsy2PxdKwVCs4UMqEhbsuFtyZaBVMqF-M2X5s5dPCnIzgsu_eFSTqw-PrD45rT4_r75_U7p_Uvn3p_9P__nrt8uXLHz_-8_M_3nui_gs1&cbcxt=&username=ndelafuente%40sandiego.edu&mkt=&lc=",
+        "client-request-id": "89b649ee-847f-4f5c-ba19-07f9d65a138a",
+        "wa": "wsignin1.0",
+        "wtrealm": "urn:federation:MicrosoftOnline",
+        "wctx": {
+            "LoginOptions": 3,
+            "estsredirect": 2,
+            "estsrequest": "rQQIARAApZU5rPT0FcXf49vgEySQNNARKa3fm793jxQJjz3jGY-X8Tb2WEiW1_Ey3vdp0kRKCEKipqRIESkpUqSgSKKUhIIqkVKmirIJOqDiiYKOKu3VPTrST_ec-_xm-UbfukWQhOfyLner9s5t_HPS3vll3vzg-av_2_3-nZ_-7G35ozeefflX-4e__PUtHXdd1S7v779Td9_GbpMU5_smbLv70u27GL5v3fxy3ybnIin-fPuakwznMWvTaRaUvF0F6qe3t_-8vf37C0-0hz34qxewvimWpdsm7bJw87Bddv5So0VhCe7AN5MkgKKyyd1u2RdtFfpJlITBB4_-8xK8kaIo8Hc5e2lniWrajGN17RoLsVh2dC2aWUw4Z2x2V-tAZEZ3i2jcWVP0qwrqYzqh2XjdXE8CERq7hhkidT3DBm0xGdAn1Aw5eQ5QOSuNxM_zNFWOeH8VyDUJZzbJ2p5VwQXUrq6zVtq-6slWMtI9uV2f3WOnCYDkWmg_1NGmDHA-E6soqxk1y5AAdy51ljiGq4Td3BqIoZqsQjQPVn6EaFU6ZZQy9d3cn1gQeXNAzXEXi0OVchLHKSmKS9IFRWyyLFvJv8YV6IzL5ggzGm_qVQzDahRLJFQnFXMckcMsXeGT7mnROYe89YSpcpZ7YrZlyeLoomUhVnHNXl2gSV7mMCeC0xK_7EalF1ca46VYTIVFpjGxvBYKE92b9IHKQO2Fzgk0eiM6VeRskEUx0Mx5TQOaYyKC7geyXEdVRO0Dp96uQC3741bg9J2yiS4qx5kW4-1lAjs7QyHhxUgmvYoO2MQLJhXbtcrrKaRZe8XIc7gYp06QAMeku1Hyj4McJVpIj4IZzCBE1-W4UvfyhTOEB1IZSzRbq15wWVI7AQ0HkXJOIylmUO9cxGV9YkXWuRZWIRgQtM6v0WrXWBCvxS1FCxpLU1rPyUNe5wtWLzeDNlERs-i1KqlY5lpVZcAJ7TrkPb1yON_0191wzoIaNjHTxHay64IMDvxhhts-U1dhRTSJRUKgDgWtFbCNpgqmsjcZlAgC3NofjWE3ycdCODBajMmpNbA8bkdGGFgpctokXrNPxjQ-8CId5wXVnoYTZ4WaVUdItHg4rf0RWvfhrtEuW07tLmxL5UzouIK0k_INYWuly_cjMFAfZZrtXg0NUDNXEb8gwLMzfw14Vq_KtKZFekJ8Pt-exv3Q73ljFAibn045qnr2Geri8LpfORc7xFXRl8ftJVn0ZoiJoEKVQsN8uotR30eQqykc60MIKG5aENROJ7AA6-p9KbGlLeyoabGlr9GYjEAbnBTTSki1HdisdlmF5DWO677QV0SeuacoLvpI0cpm4snA5RegcUisR0u0PlEJU8ViPQ0A2BGspP4IVdyq20y8GvQXsMi38_GEFqcTHx5HvD7NMiZESaDYeNzqCZWgg74_JLnxkDMFYDF0OIoNhke0mCxWG7Q8ApTqiE33QNqg9yXeVJyj-aQ64wm8C2FLts6xeqCtIuOGC8kOM6MLuX-WBJ7mx1xLtarLCGrSD7s1pLI7lV1Dab_BNI_mQiZGoMKxPQLdcfyGBYzc9_KFKlU69mlEFANOsla-UNdgqoaQ6daKcVx1LKUrjCrgYkre_e7Rj6MQDQFGIlDk4RGEkkEAkRiMQsECdwMCW4AFiv3j0etFEF7cqA-LLnzr294Og_7Txy__6_HLiyfLF198_ur3X3_25s0Xj28_fPLQ_L-BXvvRr_74W_ndr_79h89X5M3HT-5zOZnxK3UR5qOwQhR_YjzJLnNiIg-BymZbFMyy2ikuqNGfYEvw_tNXPn5689nT2188u_ng2c1HL_3_r-NPr9x88b13_vbeXz755Of_3X4N0"
+        },
+        "cbcxt": "",
+        "username": "ndelafuente%40sandiego.edu",
+        "mkt": "",
+        "lc": ""
+    },
+    "InitialURL": "https://usandiego.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=R8Euu5jhtUJw4ZdA&response_type=code&redirect_uri=urn:ietf:wg:oauth:2.0:oob",
+    "Redirect1a": "https://login.microsoftonline.com/fe4e1583-fb6f-48dd-8524-d06ad7501045/saml2?SAMLRequest=fVHLboMwEPwV5DsYUNqDBUgkUZVIpKUJ5NBL5ToOWMI29dp9%2FH0d0krpITnu7szuzGwGVA4jKZ3t1Za%2FOw42%2BJKDAjINcuSMIpqCAKKo5EAsI7tyU5E0islotNVMD%2BiCcptBAbixQisUrJc5el2W7aZsqxXrV%2Fu2ep6jYM8N%2BHmOPNyDABxfK7BUWd%2BK0zSMZ2Fy16QxSe5JMntBQf2rYi7UQajutoC3MwjIqmnqsH7aNSgo%2F0QttAInudlx8yEYb7dVjnprRyAYO6CeyTsdSTpCRA3rBERMSww9NX4lNj47rKlPMsWnJDCITgmFiuxUkcmKKa7uyfAlLDv%2F5dEbWC9rPQj2HTxoI6m97i%2BJkqkjDuFxghKnYORMHAU%2FeJvDoD8XhlPLc2SN4wgX56P%2F%2F1%2F8AA%3D%3D&RelayState=2FNffdcImDlsyN9rskGDTcxLDSIhYVw1vmsyHVLQSBc80dUla2vITw0hpxlCroosPa1TiA8qDb3MxVg8B5JgInSVPlvZk2QSi2Wyg53-kRty22yDbGrPdURNmayIZqeku9tvR2Td4mZ-u8aLpiEiu_jUAR1QXuJ3QBbm_pdugn6pgEqHJ6xpMV4e7NgzQFCXbV107cIVw_fpaAGuTFXrx6RPPXdea9g6lawWsVH2tOz1dICi28qnQvUV5KrteJolI0f92SUoGylnDjjL4T_uKvYfe0IcQJfpevZmYXjnyXBka46ahY4LUkZX2k3JlxnLcWo33OAgAoZ8Q4bF5ihnP3xIOvvENzpXuPmzQiUXHsxsO22gwt8HFNmYa_QVxTHcDRMHesR-3V3ojyj9dAaBwMjixmkg6ahQ-UPsyLAMXi0.",
+    "Redirect1b": "https://login.microsoftonline.com/fe4e1583-fb6f-48dd-8524-d06ad7501045/saml2?SAMLRequest=fVHLbsIwEPyVyPfEISo9WEkkHqqggjYlgUq9VG6yBKPETr12X19fE4pED3Dc3ZndmdkYedt0bGTNTq7g3QIa76ttJLJ%2BkBCrJVMcBTLJW0BmSpaPlgsWBSHrtDKqVA05o1xncETQRihJvPk0Ia8zPq029%2BP9%2Bmm5X%2BfPP8TbgEY3T4iDOxCihblEw6VxrTCK%2FPDGHwyLKGLDWxaFL8TL%2FlSMhayErK8LeDuCkM2KIvOzx7wg3ugkaqIk2hZ0DvpDlLBeLRKyM6ZDRqlF7phQq6DlHQZcl7XAoFQtxR3XbiXVLjuquEsyoockKIpaCknS%2BFCx3opOL%2B6J6TksPv7lwRmYTzPViPLbu1O65eayv0Ew6Dui8rc9lFmJHZRiK6ByNptGfU40cAMJMdoCoenx6P%2F%2Fp78%3D&RelayState=2FNffdcImDlsyN9rskGDTQGZINKzUw5yfJz3uWQbHsvG7IjXAApLZZfIMomRz-DTrFbhJNZu4IIiUXnP5JXb0TBTkdReKmxF6BHN-WwezRfGXh1moYzFq4AGDr9AQQQZq1sonOFOIKU0Jlma3ivYy_PfGQUx7_Aj0t2i19YgVUIm2zFUlgtgG8HdCSEr3U_HzTehEOiBBAOea1LuTqoHifJeKoN1Caio1UtkFPKnqCPZE3_ahE4bne1QkKyK7oWuRUaCXQbQ7HZi1cH44ClLI6XxesWa0U1fxXR0QeGaqv8k1Rf0O1-UutBXKN4xmaLR9CJOtlyQ7LSq5iGUiAUM9XczLFOlyRCidZ618sZ77Sw5fxU5H4E4E6NZ1ZylvP-o7s64EnH1SxX6BECvB_HVlaEMcm51DtHH4OCUIcANYVc.",
+    "SAMLRequest-Decoder": "https://www.samltool.com/decode.php",
+    "Decoded-SAMLRequest": "./SAMLRequest.xml",
+    "USD-ADFS": "https://adfs.sandiego.edu/adfs/ls/?client-request-id=1bf94ab8-4fb1-4cdb-a608-7f8a6c056a68&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline&wctx=LoginOptions%3D3%26estsredirect%3d2%26estsrequest%3drQQIARAApdI9jNtkAAbgpHe5O04tFKZDLAysvvg3cSwh4VySs1Pnx3Hsc7JEn-3P9uf4L_5sxz4GRhASUiW2GxmKKBIIJsSEGDt1ho0BVUgVHUsnTgxsTKyv3lfv8pw2hLcLDGIHQS85j0CKz0Fmewif20mUvXV6_4fxX-98N_tVeXTy0adhK_AfN0U_z1MstNv_uWtjH2Qo9toZxHk7AUXu020MorCNkRej-Ofmm5uBqE9EXZFsXzJ0Re0_bTafNZu_3Glptz361R2uyGIhARhhIQYRxEJuC5o4UQTqnPonQQ7hJlkEcqGIcQpt5CLo3Bx8fUCPpq7r2HI0CHE97WV4ezlY2pUy0GR_ZeypMsK1ZCiq1rd50tFDQJfyck_6aRVeZEmC54BaIpHfDSxmUhke3-fGnhxrxjws11ta1RB9VXscQ2wXeU3T9cC6zOaOvphGoJbXO7gtenm5oJcOG62JggdKioao2AS6uKBUsxgzat-KNqlTeHEn9YY7adyp0onBwu7Uu1ZHF6ZlUGTXlo39xk2BeFksR2ZWdRbzuelA0PM6IdhfYUOi89k15cgXiOZ3sVrqBvcgy-E4CWXS7dGanlzWYTwIAoVdbooH5cqFpGyrYzeF5TpamUFcm_0tYDvAX7GKvl2b9JYZh1Ws2FcJw8xET0zWvMpaIw758Zyp5FlZDqfXqVnMo2sV6aaEKzyjaW-f89JoGq3ARjWqpWQPFhMJ4gXBGEwS1EHPEUF_PwlQFW292zeV0Oe4VsSJicjvD95zIQspjmcI1-q4BMs7DsFzNEs4ZAc4XY6kSJb77eAsdmAI3ALGOfzgX3bQKZ4e3v3j8C7ZEk5OTu-_cXb8buPlYfOL1i3c5Bvtz2c3n_e_ffHZh2dfjRpPWm0umu6tUt0porXSut3hNDMWFah6TNjtYBDMV6sebQ-l0gL2-5RAPTy69-So8eKo-clx4-a48eNr_1_-T_caL19__vjLh49-__i59Dc1&cbcxt=&username=ndelafuente%40sandiego.edu&mkt=&lc=",
+    "StaySignedIn": "https://login.microsoftonline.com/login.srf",
+
+    "RelayState": "2FNffdcImDlsyN9rskGDTZhKweyBSe0Zq18tbrfbtvZNafRgWqZU6uWa3CKBcghvaXBFY6tu13bW3SA31rdsFHP0YaTBK8Zz7rUYCZh_-2Zv9z6r8KyvLicxk6n50onfRsu5QGoFv8Yt4UKzRCKYiivnx-_N0omYZw2eiTPIh8KBnohP0PWrsFzdCwBUEr3gzVIVzGN0nxClVcE1a1e3Ml0K-t3AfHxI4hvqctF6L670cawhVa3laAHW23kNxgLU9t5fr1AhVe7yq9Ic5D4MyOpi407N_Ces8wT5qOFn_lMtILO9A1dqbh_IP7IjkWPjzUsOFL_21ypokSBO9_H3GpmqQOlA9-rbGWtoNfkxueRPEHV-ntuHkhrfhWOTozT2UwrPO2pSxp7C2aaiMApW32k8j2dz0AdvQ2_llptHot8",
+
+    "generic": {
+        "wa": "string",
+        "wreply": "[URL]",
+        "wres": "[URL]",
+
+        "wctx": "[string]",
+        "wp": "[URI]",
+        "wct": "[timestring]",
+        "wfed": "[string]",
+        "wencoding": "[string]",
+
+        "wtreamlm": "string",
+        "wfresh": "[freshness]",
+        "wauth": "[URI]",
+        "wreq": "[XML]"
+    },
+    
+    "docs": {
+        "WSFederation1.2": "http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html#_Toc223175011",
+        "MS-MWBF_docs": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-mwbf/54759c9b-4298-44f7-9026-f5ee815594d8"
+    }
+}
