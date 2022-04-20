@@ -1,18 +1,36 @@
-import requests  # pip install requests
+from asyncio.log import logger
+import json
+import arcgis
+import requests
 import config as cfg
 from os import system
 
-def get_token():
+class ApiError(BaseException):
+    def __init__(self, error_response):
+        self.message = error_response
+
+    def __repr__(self):
+        return str(self.message)
+
+def get_token(client_id, client_secret):
     params = {
-        'client_id': cfg.CLIENT_ID,
-        'client_secret': cfg.CLIENT_SECRET,
+        'client_id': client_id,
+        'client_secret': client_secret,
         'grant_type': "client_credentials"
     }
     request = requests.get('https://www.arcgis.com/sharing/rest/oauth2/token',
-                          params=params)
+                        params=params)
+
     response = request.json()
-    token = response["access_token"]
-    return token
+    return parse_response(response, "access_token")
+
+def parse_response(response: dict, key: str):
+    if key in response:
+        return response[key]
+    elif 'error' in response:
+        raise ApiError(response['error'])
+    else:
+        raise ApiError("Unsopported response type:" + str(response))
 
 def authorize():
     parameters = {
@@ -21,7 +39,7 @@ def authorize():
         'expiration': 60,
         'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob'
     }
- 
+
     # Ask the portal to authorize us
     url = 'https://' + cfg.PORTAL_NAME + '.maps.arcgis.com/sharing/rest/oauth2/authorize'
     
@@ -35,7 +53,3 @@ def authorize():
     print(content, file=file)
     # system(f"open {outfile}")
 
-authorize()
-
-# token = get_token()
-# print(token)
