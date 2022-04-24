@@ -15,6 +15,6 @@ class FundingAgencyListCreate(generics.ListCreateAPIView):
     queryset = models.FUNDING_AGENCY.objects.all()
     serializer_class = serializers.FundingAgencySerializer
 
-class MonitorLocationListCreate(generics.ListCreateAPIView):
-    queryset = models.MONITOR_LOCATION.objects.all()
-    serializer_class = serializers.MonitorLocationSerializer
+class ProjectListCreate(generics.ListCreateAPIView):
+    queryset = models.PROJECT.objects.all()
+    serializer_class = serializers.ProjectSerializer
