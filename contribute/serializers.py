@@ -18,7 +18,7 @@ class FundingAgencySerializer(serializers.ModelSerializer):
         model = models.FUNDING_AGENCY
         fields = ('id', 'fa_name', 'fa_type', 'fa_mission', 'fa_website')
 
-class MonitorLocationSerializer(serializers.ModelSerializer):
+class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.MONITOR_LOCATION
-        fields = ('id', 'loc_name', 'loc_lat', 'loc_long')
+        model = models.PROJECT
+        fields = ('id', 'project_name', 'project_org', 'project_fa', 'project_loc', 'loc_lat', 'loc_long', 'active_status', 'tools_used', 'project_startdate', 'project_enddate')
