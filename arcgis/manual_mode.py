@@ -21,6 +21,11 @@ def parse_response(response: dict, key: str):
 
 ## Methods to consume the ArcGIS REST API
 def get_token(client_id: str, client_secret: str) -> str:
+    """
+    Uses application credentials to generate a temporary access token
+
+    @note Only provides read-only access
+    """
     params = {
         'client_id': client_id,
         'client_secret': client_secret,
@@ -71,7 +76,6 @@ class AppLogin:
         features = [
             {
                 'attributes': {
-                    'OBJECTID': 1,
                     'NAME': 'Joe Smith',
                     'APPROVED': True,
                 },
@@ -82,7 +86,6 @@ class AppLogin:
             },
             {
                 'attributes': {
-                    'OBJECTID': 2,
                     'NAME': 'John Doe',
                     'APPROVED': False,
                 },
@@ -97,7 +100,7 @@ class AppLogin:
             'token': get_token(cf.CLIENT_ID, cf.CLIENT_SECRET),
             'features': json.dumps(features)
         }
-        url = cf.FEATURE_LAYER_URL + '/updateFeatures'
+        url = cf.FEATURE_LAYER_URL + '/addFeatures'
 
         response = requests.post(url, params=params).json()
         print(response)
@@ -106,5 +109,5 @@ class AppLogin:
 
 
 if __name__ == "__main__":
-    AppLogin.add_feature_layer_fields()
+    AppLogin.add_feature()
 
