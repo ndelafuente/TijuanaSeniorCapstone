@@ -12,7 +12,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
         model = models.ORGANIZATION
         fields = (
             "id", "name", "type", "description", "website", "email",
-            "address", "city", "state", "zip", "country"
+            "address", "city", "state", "zip_code", "country"
         )
 
 class ProjectSerializer(serializers.ModelSerializer):

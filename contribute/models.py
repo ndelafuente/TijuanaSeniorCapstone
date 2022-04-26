@@ -13,7 +13,7 @@ class CONTACT(models.Model):
     position = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.first_name
+        return self.first_name + ' ' + self.last_name
 
     # created_at = models.DateTimeField(auto_now_add=True)
 
@@ -32,9 +32,9 @@ class ORGANIZATION(models.Model):
     # Location
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
-    state = models.CharField(max_length=10)
-    zip = models.IntegerField()
-    country = models.CharField(max_length=10)
+    state = models.CharField(max_length=20)
+    zip_code = models.IntegerField()
+    country = models.CharField(max_length=20)
 
     # title = models.CharField(max_length=10)
 
