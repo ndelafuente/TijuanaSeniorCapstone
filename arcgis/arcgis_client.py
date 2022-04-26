@@ -23,19 +23,25 @@ class Blank:
         # Connect to feature layer
         self.feature_layer = self._connect_to_layer(id)
 
-    def _login(self, portal:str, credentials):
+    def login(self, portal:str, credentials):
         """
         @param credentials api_key=None, app_credentials=None, user_credentials=None
         """
         return GIS(url=portal)
 
-    def _connect_to_layer(self, id):
+    def connect_to_layer(self, id):
         item = self.gis.content.get(id)
         return item.layers[0]
 
-    def add_features(self):
+    def get_changes(self):
+        """
+        Find the difference between remote feature layer and local database
+        """
         pass
 
-    def update_features(self):
+    def update_remote(self):
+        """
+        Add approved projects to remote feature layer
+        """
         pass
 
