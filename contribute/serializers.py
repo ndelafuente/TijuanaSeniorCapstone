@@ -5,15 +5,21 @@ from . import models
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CONTACT
-        fields = ('id', 'first_name', 'last_name', 'email', 'position')
+        fields = ("id", "first_name", "last_name", "email", "position")
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ORGANIZATION
-        fields = ('id', 'org_name', 'org_class', 'org_description', 'org_website', 'org_email',
-            'org_address', 'org_city', 'org_state', 'org_zip', 'org_country', 'org_title')
+        fields = (
+            "id", "name", "type", "description", "website", "email",
+            "address", "city", "state", "zip", "country"
+        )
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PROJECT
-        fields = ('id', 'project_name', 'project_org', 'project_fa', 'project_loc', 'loc_lat', 'loc_long', 'active_status', 'tools_used', 'project_startdate', 'project_enddate')
+        fields = (
+            "id", "created_at", "project_name", "fk_organization",
+            "fk_contact", "funding_agencies", "parameters_monitored",
+            "fk_location", "is_active", "start_date", "end_date", "purpose"
+        )
