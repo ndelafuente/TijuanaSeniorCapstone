@@ -1,4 +1,4 @@
-from pickle import TRUE
+from pickle import NONE, TRUE
 from ssl import Options
 from django.db import models
 
@@ -37,19 +37,6 @@ class ORGANIZATION(models.Model):
         return self.org_name
 
 
-class FUNDING_AGENCY(models.Model):
-    """
-    Information for the funding agencies in the project
-    """
-    fa_name = models.CharField(max_length=100)
-    fa_type = models.CharField(max_length=100)
-    fa_mission = models.CharField(max_length=500)
-    fa_website = models.CharField(max_length=100)
-    def __str__(self):
-        return self.fa_name
-
-
-
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research
@@ -57,14 +44,14 @@ class PROJECT(models.Model):
     #not sure if this is how to correctly handle foreign keys
     project_name = models.CharField(max_length=200)
     project_org = models.ForeignKey(ORGANIZATION, on_delete=models.CASCADE)
-    project_fa = models.ForeignKey(FUNDING_AGENCY, on_delete=models.CASCADE)
+    project_fa = models.CharField(max_length=200)
     project_loc = models.CharField(max_length=200)
     loc_lat = models.FloatField()
     loc_long = models.FloatField()
-    active_status = models.BooleanField(unique=TRUE)
+    active_status = models.BooleanField(unique=TRUE) # true is still going false is completed
     tools_used = models.CharField(max_length=200)
     project_startdate = models.DateField()
-    project_enddate = models.DateField()
+    project_enddate = models.DateField(default=NONE)
     
     def __str__(self):
         return self.project_name
