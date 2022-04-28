@@ -19,7 +19,10 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PROJECT
         fields = (
-            "id", "created_at", "project_name", "fk_organization",
-            "fk_contact", "funding_agencies", "parameters_monitored",
-            "fk_location", "is_active", "start_date", "end_date", "purpose"
+            "id", "created_at",
+            "project_name", "fk_organization", "fk_contact", "funding_agencies", # who
+            "params_default", "params_other", # what
+            "longitude", "latitude", # where
+            "is_active", "start_date", "end_date", # when
+            "purpose" # why
         )

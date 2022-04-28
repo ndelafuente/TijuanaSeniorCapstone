@@ -1,7 +1,8 @@
 from pickle import NONE, TRUE
-from ssl import Options
 from django.db import models
+import json
 
+import params_monitored as pm
 
 class CONTACT(models.Model):
     """
@@ -64,15 +65,18 @@ class PROJECT(models.Model):
 
     # 'Who'
     project_name = models.CharField(max_length=200)
-    fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.CASCADE)
+    fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
     fk_contact = models.ForeignKey(CONTACT, on_delete=models.CASCADE)
     funding_agencies = models.CharField(max_length=200)
     
     # 'What'
-    parameters_monitored = models.CharField(max_length=200)
+    # PARAM_CHOICES can be located in params_monitored.py
+    params_default = models.CharField(max_length=150, choices=pm.PARAM_CHOICES)
+    params_other = models.CharField(max_length=100, default=None)
 
     # 'Where'
-    fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
 
     # 'When'
     is_active = models.BooleanField(unique=TRUE)
@@ -81,7 +85,6 @@ class PROJECT(models.Model):
 
     # 'Why'
     purpose = models.TextField(max_length=400)
-
     
     def __str__(self):
         return self.project_name
