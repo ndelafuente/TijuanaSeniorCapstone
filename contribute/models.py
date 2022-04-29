@@ -50,15 +50,6 @@ class LOCATION(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
 
-class PARAMETERS(models.Model):
-
-    # PARAM_CHOICES can be located in params_monitored.py
-    params_default = MultiSelectField(
-        choices=pm.PARAM_CHOICES,
-        max_choices=len(pm.PARAM_CHOICES)
-    )
-    params_other = models.CharField(max_length=200, default=None)
-
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research

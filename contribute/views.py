@@ -11,10 +11,6 @@ class OrganizationListCreate(generics.ListCreateAPIView):
     queryset = models.ORGANIZATION.objects.all()
     serializer_class = serializers.OrganizationSerializer
 
-class ParameterListCreate(generics.ListCreateAPIView):
-    queryset = models.PARAMETERS.objects.all()
-    serializer_class = serializers.ParameterSerializer
-
 class ProjectListCreate(generics.ListCreateAPIView):
     queryset = models.PROJECT.objects.all()
     serializer_class = serializers.ProjectSerializer

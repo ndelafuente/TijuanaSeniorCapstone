@@ -15,15 +15,6 @@ class OrganizationSerializer(serializers.ModelSerializer):
             "address", "city", "state", "zip_code", "country"
         )
 
-class ParameterSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.PARAMETERS
-        fields = '__all__'
-    #     fields = ('params_default', 'params_other')
-
-    params_default = fields.MultipleChoiceField(choices=PARAM_CHOICES)
-    # other = fields.CharField(max_length=200)
-
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PROJECT
