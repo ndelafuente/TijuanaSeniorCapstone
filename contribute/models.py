@@ -23,7 +23,15 @@ class ORGANIZATION(models.Model):
     Information for the organization submitting the form
     """
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
+    ORG_TYPES = (
+        ("A", "Academic"),
+        ("F", "Federal"),
+        ("I", "International"),
+        ("N", "Non-Profit"),
+        ("S", "State"),
+        ("O", "Other"),
+    )
+    type = models.CharField(max_length=10, choices=ORG_TYPES)
     description = models.CharField(max_length=500)
 
     # Contact info
@@ -35,9 +43,11 @@ class ORGANIZATION(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=20)
     zip_code = models.IntegerField()
-    country = models.CharField(max_length=20)
-
-    # title = models.CharField(max_length=10)
+    COUNTRY_CHOICES = (
+        ("US", "United States"),
+        ("MX", "Mexico")
+    )
+    country = models.CharField(max_length=20, choices=COUNTRY_CHOICES)
 
     def __str__(self):
         return self.name
