@@ -1,6 +1,6 @@
-from rest_framework import serializers
+from rest_framework import fields, serializers
 from . import models
-
+from contribute.parameters import PARAM_CHOICES
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,14 +15,18 @@ class OrganizationSerializer(serializers.ModelSerializer):
             "address", "city", "state", "zip_code", "country"
         )
 
+class ParameterSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.PARAMETERS
+        fields = '__all__'
+    #     fields = ('params_default', 'params_other')
+
+    params_default = fields.MultipleChoiceField(choices=PARAM_CHOICES)
+    # other = fields.CharField(max_length=200)
+
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PROJECT
-        fields = (
-            "id", "created_at",
-            "project_name", "fk_organization", "fk_contact", "funding_agencies", # who
-            "params_default", "params_other", # what
-            "longitude", "latitude", # where
-            "is_active", "start_date", "end_date", # when
-            "purpose" # why
-        )
+        fields = '__all__'
+    
+    params_default = fields.MultipleChoiceField(choices=PARAM_CHOICES)

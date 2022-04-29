@@ -1,8 +1,8 @@
 from pickle import NONE, TRUE
 from django.db import models
-import json
+from multiselectfield import MultiSelectField
 
-import params_monitored as pm
+import contribute.parameters as pm
 
 class CONTACT(models.Model):
     """
@@ -50,6 +50,15 @@ class LOCATION(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
 
+class PARAMETERS(models.Model):
+
+    # PARAM_CHOICES can be located in params_monitored.py
+    params_default = MultiSelectField(
+        choices=pm.PARAM_CHOICES,
+        max_choices=len(pm.PARAM_CHOICES)
+    )
+    params_other = models.CharField(max_length=200, default=None)
+
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research
@@ -70,9 +79,12 @@ class PROJECT(models.Model):
     funding_agencies = models.CharField(max_length=200)
     
     # 'What'
-    # PARAM_CHOICES can be located in params_monitored.py
-    params_default = models.CharField(max_length=150, choices=pm.PARAM_CHOICES)
-    params_other = models.CharField(max_length=100, default=None)
+    # parameters_monitored = models.ForeignKey(PARAMETERS, on_delete=models.CASCADE)
+    params_default = MultiSelectField(
+        choices=pm.PARAM_CHOICES,
+        max_choices=len(pm.PARAM_CHOICES)
+    )
+    params_other = models.CharField(max_length=200, default=None)
 
     # 'Where'
     longitude = models.FloatField()
