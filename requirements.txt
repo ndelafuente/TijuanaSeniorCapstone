@@ -1,4 +1,5 @@
 django
 djangorestframework
-coverage
+django-multiselectfield
 arcgis
+coverage
