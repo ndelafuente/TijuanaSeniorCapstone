@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multiselectfield', # from https://pypi.org/project/django-multiselectfield/
     'rest_framework',
     'contribute.apps.ContributeConfig',
     'frontend',
