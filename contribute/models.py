@@ -88,8 +88,7 @@ class PROJECT(models.Model):
     params_other = models.CharField(max_length=200, default=None)
 
     # 'Where'
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
 
     # 'When'
     is_active = models.BooleanField(unique=TRUE)
