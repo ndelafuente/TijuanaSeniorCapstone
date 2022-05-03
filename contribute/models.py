@@ -1,6 +1,7 @@
 from pickle import NONE, TRUE
 from django.db import models
 from multiselectfield import MultiSelectField
+from contribute.query import *
 
 import contribute.parameters as pm
 
@@ -17,6 +18,8 @@ class CONTACT(models.Model):
         return self.first_name + ' ' + self.last_name
 
     # created_at = models.DateTimeField(auto_now_add=True)
+
+    
 
 class ORGANIZATION(models.Model):
     """
@@ -49,6 +52,8 @@ class ORGANIZATION(models.Model):
     )
     country = models.CharField(max_length=20, choices=COUNTRY_CHOICES)
 
+    organizationObjects = OrganizationManager()
+
     def __str__(self):
         return self.name
 
@@ -59,6 +64,7 @@ class LOCATION(models.Model):
     location_name = models.CharField(max_length=200)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    locationObjects = LocationManager()
 
 class PROJECT(models.Model):
     """
@@ -70,8 +76,10 @@ class PROJECT(models.Model):
         - There should be a predetermined list for the user to choose from.
         - And the user should be able to select multiple at once
     """
+
     # Auto-generated data
     created_at = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=False)
 
     # 'Who'
     project_name = models.CharField(max_length=200)
@@ -91,12 +99,18 @@ class PROJECT(models.Model):
     fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
 
     # 'When'
-    is_active = models.BooleanField(unique=TRUE)
+    is_active = models.BooleanField(unique=True)
+
     start_date = models.DateField()
     end_date = models.DateField(default=NONE)
 
     # 'Why'
     purpose = models.TextField(max_length=400)
-    
+
+    projectObjects = ProjectManager()
+
+
     def __str__(self):
         return self.project_name
+
+    
