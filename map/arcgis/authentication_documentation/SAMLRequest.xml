@@ -1,0 +1,4 @@
+<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_DAUMAULHchHVULQB" Version="2.0" IssueInstant="2022-04-15T20:16:14Z" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" AssertionConsumerServiceURL="https://usandiego.maps.arcgis.com/sharing/rest/oauth2/saml/signin">
+    <saml:Issuer>usandiego.maps.arcgis.com</saml:Issuer>
+    <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" AllowCreate="true" />
+</samlp:AuthnRequest>
