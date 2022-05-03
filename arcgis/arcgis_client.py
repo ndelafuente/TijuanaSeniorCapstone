@@ -1,6 +1,4 @@
-from click import pass_context
 import config as cf
-
 from arcgis.gis import GIS
 
 
