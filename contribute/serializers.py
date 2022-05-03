@@ -2,6 +2,22 @@ from rest_framework import fields, serializers
 from . import models
 from contribute.parameters import PARAM_CHOICES
 
+from contribute.models import PROJECT, ORGANIZATION
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PROJECT
+        fields = '__all__'
+
+
+class OrganizationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ORGANIZATION
+        fields = '__all__'
+
+## Old serializers
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CONTACT

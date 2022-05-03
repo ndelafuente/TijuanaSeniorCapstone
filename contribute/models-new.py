@@ -1,8 +1,9 @@
-# Create your models here.
 from pickle import NONE, TRUE
-
 from django.db import models
+from multiselectfield import MultiSelectField
+from contribute.query import *
 
+import contribute.parameters as pm
 
 class CONTACT(models.Model):
     """
@@ -13,18 +14,27 @@ class CONTACT(models.Model):
     email = models.EmailField()
     position = models.CharField(max_length=100)
 
-    def str(self):
-        return self.first_name
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
 
     # created_at = models.DateTimeField(auto_now_add=True)
 
+    
 
 class ORGANIZATION(models.Model):
     """
     Information for the organization submitting the form
     """
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
+    ORG_TYPES = (
+        ("A", "Academic"),
+        ("F", "Federal"),
+        ("I", "International"),
+        ("N", "Non-Profit"),
+        ("S", "State"),
+        ("O", "Other"),
+    )
+    type = models.CharField(max_length=10, choices=ORG_TYPES)
     description = models.CharField(max_length=500)
 
     # Contact info
@@ -34,15 +44,18 @@ class ORGANIZATION(models.Model):
     # Location
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
-    state = models.CharField(max_length=10)
-    zip = models.IntegerField()
-    country = models.CharField(max_length=10)
+    state = models.CharField(max_length=20)
+    zip_code = models.IntegerField()
+    COUNTRY_CHOICES = (
+        ("US", "United States"),
+        ("MX", "Mexico")
+    )
+    country = models.CharField(max_length=20, choices=COUNTRY_CHOICES)
 
-    # title = models.CharField(max_length=10)
+    organizationObjects = OrganizationManager()
 
     def __str__(self):
         return self.name
-
 
 class LOCATION(models.Model):
     """
@@ -51,40 +64,53 @@ class LOCATION(models.Model):
     location_name = models.CharField(max_length=200)
     latitude = models.FloatField()
     longitude = models.FloatField()
-
+    locationObjects = LocationManager()
 
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research
-
+    
     TODO:
     @All: How should foreign keys be handled?
     @GingerMcKelvey: How should we handle parameters monitored?
         - There should be a predetermined list for the user to choose from.
         - And the user should be able to select multiple at once
     """
+
     # Auto-generated data
     created_at = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=False)
 
     # 'Who'
     project_name = models.CharField(max_length=200)
-    fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.CASCADE)
+    fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
     fk_contact = models.ForeignKey(CONTACT, on_delete=models.CASCADE)
     funding_agencies = models.CharField(max_length=200)
-
+    
     # 'What'
-    parameters_monitored = models.CharField(max_length=200)
+    # parameters_monitored = models.ForeignKey(PARAMETERS, on_delete=models.CASCADE)
+    params_default = MultiSelectField(
+        choices=pm.PARAM_CHOICES,
+        max_choices=len(pm.PARAM_CHOICES)
+    )
+    params_other = models.CharField(max_length=200, default=None)
 
     # 'Where'
     fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
 
     # 'When'
-    is_active = models.BooleanField(unique=TRUE)
+    is_active = models.BooleanField(unique=True)
+
     start_date = models.DateField()
     end_date = models.DateField(default=NONE)
 
     # 'Why'
     purpose = models.TextField(max_length=400)
 
-    def str(self):
+    projectObjects = ProjectManager()
+
+
+    def __str__(self):
         return self.project_name
+
+    
