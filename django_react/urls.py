@@ -16,8 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework.routers import SimpleRouter
+
+from contribute.views import ProjectViewSet, OrganizationViewSet
+
+
+
+router = SimpleRouter(trailing_slash=False)
+
+router.register(r'project', ProjectViewSet)
+router.register(r'organization', OrganizationViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('contribute.urls')),
     path('', include('frontend.urls')),
 ]
+
+urlpatterns += router.urls
