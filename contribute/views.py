@@ -1,20 +1,16 @@
 from django.shortcuts import render
-from . import models
-from . import serializers
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
-from rest_framework.viewsets import ModelViewSet
+from contribute import models
+from contribute import serializers
 
-from contribute.models import PROJECT, ORGANIZATION
-from contribute.serializers import ProjectSerializer, OrganizationSerializer
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = models.PROJECT.objects.all()
+    serializer_class = serializers.ProjectSerializer
 
-class ProjectViewSet(ModelViewSet):
-    queryset = PROJECT.objects.all()
-    serializer_class = ProjectSerializer
-
-class OrganizationViewSet(ModelViewSet):
-    queryset = ORGANIZATION.objects.all()
-    serializer_class = OrganizationSerializer
+class OrganizationViewSet(viewsets.ModelViewSet):
+    queryset = models.ORGANIZATION.objects.all()
+    serializer_class = serializers.OrganizationSerializer
 
 ## OLD VIEWS
 

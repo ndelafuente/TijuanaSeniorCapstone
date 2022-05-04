@@ -1,7 +1,5 @@
 # search query stuff will go here
-from pickle import FALSE
-from django.db import models 
-from contribute.models import *
+from django.db import models
 
 
 class ProjectManager(models.Manager):

@@ -1,6 +1,4 @@
 # Create your models here.
-from pickle import NONE, TRUE
-
 from django.db import models
 
 
@@ -79,9 +77,9 @@ class PROJECT(models.Model):
     fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
 
     # 'When'
-    is_active = models.BooleanField(unique=TRUE)
+    is_active = models.BooleanField(unique=True)
     start_date = models.DateField()
-    end_date = models.DateField(default=NONE)
+    end_date = models.DateField(default=None)
 
     # 'Why'
     purpose = models.TextField(max_length=400)

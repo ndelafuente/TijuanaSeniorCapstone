@@ -1,19 +1,17 @@
 from rest_framework import fields, serializers
-from . import models
+
+from contribute import models
 from contribute.parameters import PARAM_CHOICES
-
-from contribute.models import PROJECT, ORGANIZATION
-
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PROJECT
+        model = models.PROJECT
         fields = '__all__'
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ORGANIZATION
+        model = models.ORGANIZATION
         fields = '__all__'
 
 ## Old serializers
@@ -28,7 +26,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
         model = models.ORGANIZATION
         fields = (
             "id", "name", "type", "description", "website", "email",
-            "address", "city", "state", "zip_code", "country"
+            "address", "city", "state", "zip", "country"
         )
 
 class ProjectSerializer(serializers.ModelSerializer):
