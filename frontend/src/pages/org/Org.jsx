@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {BrowserRouter as Router, Switch, Route, Routes, BrowserRouter} from 'react-router-dom';
+import React, { useState, useCallback } from "react";
+import {BrowserRouter} from 'react-router-dom';
 import client from "../../Client";
 import NavBar from "../../NavBar";
 
@@ -21,7 +21,7 @@ const OrgPage = () => {
                 'address': 'Add 2',
                 'city': 'San Diego',
                 'state': 'CA',
-                'zip': '92110',
+                'zip': 92110,
                 'country': 'VN'
             }).then(function(response){
                 setOrg(response.data)
