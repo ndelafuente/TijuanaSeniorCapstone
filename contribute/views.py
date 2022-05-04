@@ -6,9 +6,6 @@ from . import serializers
 from rest_framework import generics
 
 #model stuff
-class ContactListCreate(generics.ListCreateAPIView):
-    queryset = models.CONTACT.objects.all()
-    serializer_class = serializers.ContactSerializer
 
 class OrganizationListCreate(generics.ListCreateAPIView):
     queryset = models.ORGANIZATION.objects.all()
@@ -17,5 +14,3 @@ class OrganizationListCreate(generics.ListCreateAPIView):
 class ProjectListCreate(generics.ListCreateAPIView):
     queryset = models.PROJECT.objects.all()
     serializer_class = serializers.ProjectSerializer
-
-#search stuff

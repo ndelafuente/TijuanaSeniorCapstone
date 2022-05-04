@@ -2,10 +2,6 @@ from rest_framework import fields, serializers
 from . import models
 from contribute.parameters import PARAM_CHOICES
 
-class ContactSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.CONTACT
-        fields = ("id", "first_name", "last_name", "email", "position")
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
