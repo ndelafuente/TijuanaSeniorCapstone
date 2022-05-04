@@ -17,12 +17,12 @@ const OrgPage = () => {
                 'type': 'Type 3',
                 'description': description,
                 'website': website,
+                'email': 'abc@gmail.com',
                 'address': 'Add 2',
-                'city': 'HCM',
-                'state': 'HCM',
-                'zip': '100000',
-                'country': 'VN',
-                'email': 'abc@gmail.com'
+                'city': 'San Diego',
+                'state': 'CA',
+                'zip': '92110',
+                'country': 'VN'
             }).then(function(response){
                 setOrg(response.data)
             })
