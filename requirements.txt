@@ -3,3 +3,4 @@ djangorestframework
 django-multiselectfield
 arcgis
 coverage
+django-cors-headers
