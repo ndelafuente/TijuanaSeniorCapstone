@@ -1,14 +1,18 @@
-from ast import Or
-from pickle import FALSE, TRUE
 from django.shortcuts import render
-from . import models
-from . import serializers
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
-#model stuff
-class ContactListCreate(generics.ListCreateAPIView):
-    queryset = models.CONTACT.objects.all()
-    serializer_class = serializers.ContactSerializer
+from contribute import models
+from contribute import serializers
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = models.PROJECT.objects.all()
+    serializer_class = serializers.ProjectSerializer
+
+class OrganizationViewSet(viewsets.ModelViewSet):
+    queryset = models.ORGANIZATION.objects.all()
+    serializer_class = serializers.OrganizationSerializer
+
+## OLD VIEWS
 
 class OrganizationListCreate(generics.ListCreateAPIView):
     queryset = models.ORGANIZATION.objects.all()
@@ -17,5 +21,3 @@ class OrganizationListCreate(generics.ListCreateAPIView):
 class ProjectListCreate(generics.ListCreateAPIView):
     queryset = models.PROJECT.objects.all()
     serializer_class = serializers.ProjectSerializer
-
-#search stuff
