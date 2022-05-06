@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+import { render } from "react-dom"
+
+// import './App.css';
+import OrgPage from './Org'
 
 class App extends Component {
   constructor(props) {
     super(props);
+    console.log("constructing");
     this.state = {
       data: [],
       loaded: false,
@@ -12,36 +16,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("api/contribute/contact")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
+    console.log("giddy-up");
   }
 
   render() {
+    console.log("rendering");
     return (
-      <ul>
-        {this.state.data.map(contact => {
-          return (
-            <li key={contact.id}>
-              {contact.first_name} {contact.last_name} - {contact.email}
-            </li>
-          );
-        })}
-      </ul>
+      <div className="App">
+        Hello World!
+        <OrgPage />
+      </div>    
     );
   }
 }
@@ -49,4 +33,9 @@ class App extends Component {
 export default App;
 
 const container = document.getElementById("app");
-render(<App />, container);
+
+// Only render if the container is in the DOM
+if (container != null) {
+  render(<App />, container);
+  console.log("App", container);
+}
