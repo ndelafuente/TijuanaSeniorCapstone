@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import SimpleRouter
+
+from contribute import views
+
+router = SimpleRouter(trailing_slash=False)
+router.register(r'project', views.ProjectViewSet)
+router.register(r'organization', views.OrganizationViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('contribute.urls')),
     path('', include('frontend.urls')),
 ]
+
+urlpatterns += router.urls
