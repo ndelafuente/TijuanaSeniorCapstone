@@ -84,15 +84,22 @@ class OrgForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
-            name="name"
-            type="text"
-            value={this.state.name}
-            onChange={this.handleInputChange}
-          />
-        </label>
+        {
+          Object.keys(this.state).map(field => {
+          return (
+            <label key={field}>
+              {field.replace(field[0], field[0].toUpperCase())}
+              <input
+                name={field}
+                type="text" // TODO make dynamic
+                value={this.state.field}
+                onChange={this.handleInputChange}
+              />
+              <br />
+            </label>
+          );
+        })
+        }
         <input type="submit" value="Submit" />
       </form>
     );
