@@ -42,15 +42,6 @@ class ORGANIZATION(models.Model):
     def __str__(self):
         return self.name
 
-class LOCATION(models.Model):
-    """
-    Location model
-    """
-    objects = LocationManager()
-    location_name = models.CharField(max_length=200)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research
@@ -84,7 +75,9 @@ class PROJECT(models.Model):
     params_other = models.CharField(max_length=200, default=None)
 
     # 'Where'
-    fk_location = models.ForeignKey(LOCATION, on_delete=models.CASCADE)
+    location_name = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
 
     # 'When'
     is_active = models.BooleanField(unique=True)

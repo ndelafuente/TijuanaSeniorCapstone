@@ -6,10 +6,7 @@ from contribute.parameters import PARAM_CHOICES
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ORGANIZATION
-        fields = (
-            "id", "name", "type", "description", "website", "email",
-            "address", "city", "state", "zip_code", "country"
-        )
+        fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:

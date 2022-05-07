@@ -30,8 +30,8 @@ class ProjectManager(models.Manager):
         return self.filter(fk_organization=user_input)
         #call: PROJECT.projectObjects.projectbyORG()
 
-    def projectbyLOC(self, user_input):
-        return self.filter(fk_location=user_input)
+    # def projectbyLOC(self, user_input):
+    #     return self.filter(fk_location=user_input)
         #call: PROJECT.projectObjects.projectbyLOC()
 
     def filterwithPARAM(self, user_input):
