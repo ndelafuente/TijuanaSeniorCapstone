@@ -1,1 +1,0 @@
-export { default as OrgPage } from './org/Org.jsx';
