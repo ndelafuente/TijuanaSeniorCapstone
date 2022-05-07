@@ -59,6 +59,7 @@ class OrgForm extends Component {
     };
     console.log(init);
     
+    // TODO wait until user presses "submit" to POST everything
     fetch("api/contribute/organization", init)
     .then(response => {
       if (response.status > 400) {
@@ -69,13 +70,15 @@ class OrgForm extends Component {
       return response.json();
     })
     .then(data => {
-      this.setState(() => {
-        console.log("x", data);
-        return {
-          data,
-          loaded: true
-        };
-      });
+      console.log("x", data);
+      let id = data.id;
+      console.log("ID", id);
+      // this.setState(() => {
+      //   return {
+      //     data,
+      //     loaded: true
+      //   };
+      // });
     });
 
   }
