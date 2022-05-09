@@ -3,6 +3,7 @@ import { render } from "react-dom"
 
 // import './App.css';
 import OrgPage from './Org'
+import AlvarosMap from "./AlvarosMap";
 
 class App extends Component {
   constructor(props) {

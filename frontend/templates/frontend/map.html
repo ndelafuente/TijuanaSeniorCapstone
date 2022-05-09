@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.23</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.23/"></script>
+
+    <script>
+      require(["esri/views/MapView", "esri/WebMap", "esri/widgets/Search", "esri/layers/GeoJSONLayer"],
+        (MapView, WebMap, Search, GeoJSONLayer) => {
+        /************************************************************
+         * Creates a new WebMap instance. A WebMap must reference
+         * a PortalItem ID that represents a WebMap saved to
+         * arcgis.com or an on-premise portal.
+         *
+         * To load a WebMap from an on-premise portal, set the portal
+         * url with esriConfig.portalUrl.
+         ************************************************************/
+        const webmap = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "1195ccfc8c674620a0c2377f04a9c9d6"
+          }
+        });
+
+        /************************************************************
+         * Set the WebMap instance to the map property in a MapView.
+         ************************************************************/
+        const view = new MapView({
+          map: webmap,
+          container: "viewDiv"
+        });
+
+        const search = new Search({
+          view: view
+        });
+
+        // Add the widget to the top-right corner of the view
+        view.ui.add(search, "top-right");
+
+        const template = {
+          /*
+          * Used for pop-up-template displaying data on point
+          */
+          title: "ABC License",
+          content: "Name : {Name}"
+        };
+
+        const geoJSONLayer = new GeoJSONLayer({
+          // Sample data
+          url: "https://gissd.sandag.org/rdw/rest/services/Miscellaneous/ABC_Licenses/MapServer/0/query?outFields=*&where=1%3D1&f=geojson",
+          // url: "http://localhost:8000/api/contribute/project?format=json",
+          copyright: "SANDAG/SanGIS",
+          popupTemplate: template // displays pop-up table
+        });
+
+        webmap.add(geoJSONLayer);
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
