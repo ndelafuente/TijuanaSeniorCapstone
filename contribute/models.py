@@ -51,7 +51,7 @@ class PROJECT(models.Model):
         - And the user should be able to select multiple at once
     """
     objects = ProjectManager()
-    
+
     # Auto-generated data
     created_at = models.DateTimeField(auto_now_add=True)
     is_approved = models.BooleanField(default=False)

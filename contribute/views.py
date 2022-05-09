@@ -1,5 +1,4 @@
 from rest_framework import generics, viewsets
-
 from contribute import models
 from contribute import serializers
 

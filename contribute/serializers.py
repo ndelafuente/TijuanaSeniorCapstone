@@ -2,7 +2,6 @@ from rest_framework import fields, serializers
 from contribute import models
 from contribute.parameters import PARAM_CHOICES
 
-
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PROJECT
