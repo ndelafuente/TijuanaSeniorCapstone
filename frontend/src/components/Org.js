@@ -25,7 +25,7 @@ class OrgForm extends Component {
 
   componentDidMount() {
     this.setState({
-      type: 'State',
+      type: 'S', // TODO make this a dropdown list
       description: 'Monitor water in TJ River',
       website: 'waterboards.ca.gov',
       email: 'info@waterboards.ca.gov',
@@ -33,7 +33,7 @@ class OrgForm extends Component {
       city: 'San Diego',
       state: 'CA',
       zip_code: 92111,
-      country: 'United States',
+      country: 'US', // TODO make this a radio button
     })
     console.log(this.state);
   }
