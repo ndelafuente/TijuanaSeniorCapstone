@@ -1,22 +1,23 @@
-all: frontend backend
+all: compile start
 
-frontend:
-	$(MAKE) --always-make --directory=frontend
-
-backend: manage.py
+start: manage.py
 	python manage.py runserver
 
+compile: migrate webpack
+
+webpack:
+	@$(MAKE) --always-make --directory=frontend
+
 migrate:
-	python manage.py makemigrations
-	python manage.py migrate
+	@(echo "Migrating Django database")
+	@(source venv/bin/activate && python manage.py makemigrations)
+	@(source venv/bin/activate && python manage.py migrate)
 
-setup: setup_back setup_front
+install: requirements.txt
+	@echo "Ensuring that the virtual environment exists..."
+	@test -d venv || python3 -m venv --copies venv
+	@echo  "Installing the requirements using pip..."
+	@(source venv/bin/activate && pip install --quiet -r requirements.txt)
+	@$(MAKE) --directory=frontend install
 
-setup_back: 
-	$(MAKE) --directory=frontend setup
-
-setup_front: requirements.txt
-	test -d venv || python3 -m venv venv
-	(source venv/bin/activate && pip install -r requirements.txt)
-
-.PHONY: frontend
+.PHONY: webpack
