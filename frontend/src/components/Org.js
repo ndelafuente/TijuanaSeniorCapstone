@@ -16,7 +16,7 @@ class OrgForm extends Component {
       address: '',
       city: '',
       state: '',
-      zip: -1,
+      zip_code: -1,
       country: '',
     }
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,8 +32,8 @@ class OrgForm extends Component {
       address: '123 Sesame St',
       city: 'San Diego',
       state: 'CA',
-      zip: 92111,
-      country: 'US',
+      zip_code: 92111,
+      country: 'United States',
     })
     console.log(this.state);
   }
@@ -63,16 +63,15 @@ class OrgForm extends Component {
     fetch("api/contribute/organization", init)
     .then(response => {
       if (response.status > 400) {
-        return this.setState(() => {
-          return { placeholder: "Something went wrong!" };
-        });
+        console.log("Something went wrong!");
       }
       return response.json();
     })
     .then(data => {
       console.log("x", data);
-      let id = data.id;
-      console.log("ID", id);
+      // let id = data.id;
+      // console.log("ID", id);
+
       // this.setState(() => {
       //   return {
       //     data,

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { render } from "react-dom"
 
-// import './App.css';
+import './App.css';
 import OrgPage from './Org'
 import AlvarosMap from "./AlvarosMap";
+import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +25,8 @@ class App extends Component {
     console.log("rendering");
     return (
       <div className="App">
-        Hello World!
-        <OrgPage />
+        <NavBar />
+        
       </div>    
     );
   }
