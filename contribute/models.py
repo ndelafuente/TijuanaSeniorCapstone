@@ -1,10 +1,8 @@
-from pickle import NONE, TRUE
 from django.db import models
 from multiselectfield import MultiSelectField
 from contribute.query import *
 
 import contribute.parameters as pm
-    
 
 class ORGANIZATION(models.Model):
     """
@@ -45,7 +43,7 @@ class ORGANIZATION(models.Model):
 class PROJECT(models.Model):
     """
     Information about the projects/monitoring status of the research
-    
+
     TODO:
     @All: How should foreign keys be handled?
     @GingerMcKelvey: How should we handle parameters monitored?
@@ -66,7 +64,7 @@ class PROJECT(models.Model):
     project_name = models.CharField(max_length=200)
     fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
     funding_agencies = models.CharField(max_length=200)
-    
+
     # 'What'
     params_default = MultiSelectField(
         choices=pm.PARAM_CHOICES,
@@ -81,16 +79,11 @@ class PROJECT(models.Model):
 
     # 'When'
     is_active = models.BooleanField(unique=True)
-
     start_date = models.DateField()
-    end_date = models.DateField(default=NONE)
+    end_date = models.DateField(default=None)
 
     # 'Why'
     purpose = models.TextField(max_length=400)
 
-
-
     def __str__(self):
         return self.project_name
-
-    

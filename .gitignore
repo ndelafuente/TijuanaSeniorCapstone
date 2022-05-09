@@ -1,4 +1,5 @@
 config.py
+.vscode
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,django,react,venv,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,django,react,venv,visualstudiocode

@@ -1,7 +1,5 @@
 # search query stuff will go here
-from pickle import FALSE
-from django.db import models 
-from contribute.models import *
+from django.db import models
 
 
 class ProjectManager(models.Manager):
@@ -32,7 +30,7 @@ class ProjectManager(models.Manager):
 
     def projectbyLOC(self, user_input):
         return self.filter(location_name=user_input)
-        # call: PROJECT.projectObjects.projectbyLOC()
+        #call: PROJECT.projectObjects.projectbyLOC()
 
     def filterwithPARAM(self, user_input):
       return self.filter(params_default__icontains=user_input)

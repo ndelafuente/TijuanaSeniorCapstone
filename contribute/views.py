@@ -1,11 +1,16 @@
-from ast import Or
-from pickle import FALSE, TRUE
-from django.shortcuts import render
-from . import models
-from . import serializers
-from rest_framework import generics
+from rest_framework import generics, viewsets
+from contribute import models
+from contribute import serializers
 
-#model stuff
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = models.PROJECT.objects.all()
+    serializer_class = serializers.ProjectSerializer
+
+class OrganizationViewSet(viewsets.ModelViewSet):
+    queryset = models.ORGANIZATION.objects.all()
+    serializer_class = serializers.OrganizationSerializer
+
+## OLD VIEWS
 
 class OrganizationListCreate(generics.ListCreateAPIView):
     queryset = models.ORGANIZATION.objects.all()
