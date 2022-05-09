@@ -10,10 +10,13 @@ migrate:
 	python manage.py makemigrations
 	python manage.py migrate
 
-install: requirements.txt
-	pip install -r requirements.txt
+setup: setup_back setup_front
 
-virtualenv: venv/bin/activate
+setup_back: 
+	$(MAKE) --directory=frontend setup
+
+setup_front: requirements.txt
 	test -d venv || python3 -m venv venv
+	(source venv/bin/activate && pip install -r requirements.txt)
 
 .PHONY: frontend
