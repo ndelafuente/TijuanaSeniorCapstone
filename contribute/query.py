@@ -1,42 +1,64 @@
 # search query stuff will go here
 from django.db import models
-
+import json
+from django.core import serializers
 
 class ProjectManager(models.Manager):
     def projectASC(self):
         return self.all().order_by('project_name')
-        #call: PROJECT.projectObjects.projectASC()
+        #call: PROJECT.objects.projectASC()
 
     # # the - sorts in reverse order
     def projectNEWEST(self):
         return self.all().order_by('-start_date')
-        #call: PROJECT.projectObjects.projectNEWEST()
+        #call: PROJECT.objects.projectNEWEST()
 
     def projectOLDEST(self):
         return self.all().order_by('start_date')
-        #call: PROJECT.projectObjects.projectOLDEST()
+        #call: PROJECT.objects.projectOLDEST()
 
     def projectACTIVE(self):
         return self.filter(is_active=True)
-        #call: PROJECT.projectObjects.projectACTIVE()
+        #call: PROJECT.objects.projectACTIVE()
 
     def projectCOMPLETED(self):
         return self.filter(is_active=False)
-        #call: PROJECT.projectObjects.projectCOMPLETED()
+        #call: PROJECT.objects.projectCOMPLETED()
 
     def projectbyORG(self, user_input):
         return self.filter(fk_organization=user_input)
-        #call: PROJECT.projectObjects.projectbyORG()
+        #call: PROJECT.objects.projectbyORG()
 
     def projectbyLOC(self, user_input):
         return self.filter(location_name=user_input)
-        #call: PROJECT.projectObjects.projectbyLOC()
+        #call: PROJECT.objects.projectbyLOC()
 
     def filterwithPARAM(self, user_input):
       return self.filter(params_default__icontains=user_input)
-      #call: PROJECT.projectObjects.filterwithPARAM()
+      #call: PROJECT.objects.filterwithPARAM()
 
+    def projectasGeoJSON(self):
+        data = serializers.serialize('json', self.all())
+        data= json.loads(data)
+        print(data)
 
+        geojson = {
+            "type": "FeatureCollection",
+            "features": [
+            {
+                "type": "Feature",
+                "geometry" : {
+                    "type": "Point",
+                    "coordinates": [project["fields"]["longitude"], project["fields"]["latitude"]],
+                    },
+                "properties" : project,
+            } for project in data]
+        }
+        print(geojson)
+        output = json.dumps(geojson)
+        return output
+        # return data
+        #call: PROJECT.objects.projectsasGeoJSON()
 
 class OrganizationManager(models.Manager):
     def organizationASC(self):
