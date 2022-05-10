@@ -24,7 +24,7 @@
 
     <script>
       require(["esri/views/MapView", "esri/WebMap", "esri/widgets/Search", "esri/layers/GeoJSONLayer"],
-        (MapView, WebMap, Search, GeoJSONLayer) => {
+        (MapView, WebMap, Search, GeoJSONLayer, SimpleMarkerSymbol) => {
         /************************************************************
          * Creates a new WebMap instance. A WebMap must reference
          * a PortalItem ID that represents a WebMap saved to
@@ -59,8 +59,12 @@
           /*
           * Used for pop-up-template displaying data on point
           */
-          title: "Projects",
-          content: "Project Name : {project_name}"
+          title: "{project_name}",
+          
+
+          content:   "<li>Contact: {contact_name}" + "<li>Contact email: {contact_email}" + "<li>Organization: {fk_organization}" + "<li>Funding Agency: {funding_agencies}"
+            + "<li>Location: {location_name}" + "<li>Coordinates: [{longitude}, {latitude}]" + "<li>Purpose: {purpose}"
+          
         };
 
         const geoJSONLayer = new GeoJSONLayer({

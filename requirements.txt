@@ -3,3 +3,4 @@ djangorestframework
 djangorestframework-gis
 django-multiselectfield
 coverage
+djangorestframework-gis

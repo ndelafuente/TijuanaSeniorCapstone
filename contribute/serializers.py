@@ -15,6 +15,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class GeoSerializer(GeoFeatureModelSerializer):
     other_point = GeometrySerializerMethodField()
+    # fk_organization = models.ORGANIZATION.objects.get(pk=1).name
+    fk_organization = serializers.CharField(source='fk_organization.name')
 
     def get_other_point(self, obj):
         return Point(obj.longitude, obj.latitude)
@@ -23,6 +25,7 @@ class GeoSerializer(GeoFeatureModelSerializer):
         model = models.PROJECT
         geo_field = 'other_point'
         fields = '__all__'
+
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
