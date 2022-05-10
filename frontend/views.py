@@ -9,3 +9,6 @@ def contribute(request):
 
 def map(request):
     return render(request, 'frontend/map.html')
+
+def home(request):
+    return render(request, 'frontend/home.html')
