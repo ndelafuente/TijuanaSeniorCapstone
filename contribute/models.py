@@ -13,12 +13,11 @@ class ORGANIZATION(models.Model):
     name = models.CharField(max_length=100)
     ORG_TYPES = (
         ("A", "Academic"),
-        ("M", "Municipal"),
-        ("S", "State"),
         ("F", "Federal"),
         ("I", "International"),
         ("N", "Non-Profit"),
-        ("i", "Individual"),
+        ("M", "Municipal"),
+        ("S", "State"),
         ("O", "Other"),
     )
     type = models.CharField(max_length=10, choices=ORG_TYPES)
@@ -82,7 +81,7 @@ class PROJECT(models.Model):
     longitude = models.FloatField()
 
     # 'When'
-    is_active = models.BooleanField(unique=True)
+    is_active = models.BooleanField(default=False)
     start_date = models.DateField()
     end_date = models.DateField(default=None)
 

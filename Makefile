@@ -1,7 +1,7 @@
 all: compile start
 
 start: manage.py
-	@open http://localhost:8000
+	@open http://127.0.0.1:8000
 	python manage.py runserver
 
 compile: migrate webpack

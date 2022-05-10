@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='organization',
             name='country',
-            field=models.CharField(choices=[('US', 'United States'), ('MX', 'Mexico')], max_length=20),
+            field=models.CharField(choices=[('US', 'United States'), ('MX', 'Mexico'), ('CAN', "Canada")], max_length=20),
         ),
         migrations.AlterField(
             model_name='organization',
@@ -88,7 +88,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='organization',
             name='type',
-            field=models.CharField(choices=[('A', 'Academic'), ('F', 'Federal'), ('I', 'International'), ('N', 'Non-Profit'), ('S', 'State'), ('O', 'Other')], max_length=10),
+            field=models.CharField(choices=[('A', 'Academic'), ('F', 'Federal'), ('I', 'International'), ('N', 'Non-Profit'), ('M', "Municipal"), ('S', 'State'), ('O', 'Other')], max_length=10),
         ),
         migrations.AlterField(
             model_name='project',
