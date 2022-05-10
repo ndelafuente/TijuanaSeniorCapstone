@@ -150,7 +150,7 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 onChange={handleChange('purpose')}
                 defaultValue={values.purpose}
                 fullWidth
-                multiLine
+                multiline
               />
             </Grid>
 

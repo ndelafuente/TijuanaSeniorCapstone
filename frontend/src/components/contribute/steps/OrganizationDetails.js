@@ -31,7 +31,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
         <form>
           <Grid container spacing={2}>
             {/* { // TODO? Dynamic generation
-              ["org_name", "org_type", "org_description", "org_website", "org_email", "org_address", "org_city", "org_state", "org_zip_code", "org_country"]
+              ["name", "type", "description", "website", "email", "address", "city", "state", "zip_code", "country"]
               .map(field => {
                 return (
                   <Grid item xs={12} sm={6}>
@@ -55,8 +55,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="Organization Name"
                 label="Organization Name"
-                onChange={handleChange('org_name')}
-                defaultValue={values.org_name}
+                onChange={handleChange('name')}
+                defaultValue={values.name}
                 fullWidth
               />
             </Grid>
@@ -69,11 +69,12 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                   labelId="org-type-label"
                   placeholder="Type"
                   label="Type of Organization"
-                  onChange={handleChange('org_type')}
-                  defaultValue={values.org_type}
+                  onChange={handleChange('type')}
+                  value={values.type}
                   fullWidth
                 >
-                  {/* Corresponds to ORG_TYPES in contribute.models */}
+                  {/* Corresponds to TYPES in contribute.models */}
+                  {/* TODO https://mui.com/material-ui/react-text-field/#select */}
                   <MenuItem value={''}><em>None</em></MenuItem>
                   <MenuItem value={'A'}>Academic</MenuItem>
                   <MenuItem value={'M'}>Municipal</MenuItem>
@@ -81,7 +82,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                   <MenuItem value={'F'}>Federal</MenuItem>
                   <MenuItem value={'I'}>International</MenuItem>
                   <MenuItem value={'N'}>Non-Profit</MenuItem>
-                  <MenuItem value={'i'}>Individual</MenuItem>
+                  {/* <MenuItem value={'i'}>Individual</MenuItem> */}
                   <MenuItem value={'O'}>Other</MenuItem>
                 </Select>
               </FormControl>
@@ -92,8 +93,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="https://my-org.net"
                 label="Website"
-                onChange={handleChange('org_website')}
-                defaultValue={values.org_website}
+                onChange={handleChange('website')}
+                defaultValue={values.website}
                 fullWidth
               />
             </Grid>
@@ -103,8 +104,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="info@my-org.net"
                 label="Email"
-                onChange={handleChange('org_email')}
-                defaultValue={values.org_email}
+                onChange={handleChange('email')}
+                defaultValue={values.email}
                 fullWidth
               />
             </Grid>
@@ -113,8 +114,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             <Grid item xs={12}>
               <TextField 
                 label="Address"
-                onChange={handleChange('org_address')}
-                defaultValue={values.org_address}
+                onChange={handleChange('address')}
+                defaultValue={values.address}
                 autoComplete="street-address"
                 fullWidth
               />
@@ -122,8 +123,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             <Grid item xs={12}>
               <TextField 
                 label="City"
-                onChange={handleChange('org_city')}
-                defaultValue={values.org_city}
+                onChange={handleChange('city')}
+                defaultValue={values.city}
                 autoComplete="address-level2"
                 fullWidth
               />
@@ -131,8 +132,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             <Grid item xs={3}>
               <TextField 
                 label="State"
-                onChange={handleChange('org_state')}
-                defaultValue={values.org_state}
+                onChange={handleChange('state')}
+                defaultValue={values.state}
                 autoComplete="address-level1"
                 fullWidth
               />
@@ -140,8 +141,8 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             <Grid item xs={3}>
               <TextField 
                 label="ZIP Code"
-                onChange={handleChange('org_zip_code')}
-                defaultValue={values.org_zip_code}
+                onChange={handleChange('zip_code')}
+                defaultValue={values.zip_code}
                 autoComplete="postal-code"
                 fullWidth
               />
@@ -152,14 +153,15 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 <Select 
                   labelId="org-country-label"
                   label="Country"
-                  onChange={handleChange('org_country')}
-                  defaultValue={values.org_country}
+                  onChange={handleChange('country')}
+                  value={values.country}
                   autoComplete="country"
                   // autoComplete="country-name"
                   fullWidth
                 >
                   <MenuItem value="US">United States</MenuItem>
                   <MenuItem value="MX">Mexico</MenuItem>
+                  <MenuItem value="CAN">Canada</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -169,10 +171,10 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="Type something here about your organization"
                 label="Description"
-                onChange={handleChange('org_description')}
-                defaultValue={values.org_description}
+                onChange={handleChange('description')}
+                defaultValue={values.description}
                 fullWidth
-                multiLine
+                multiline
               />
             </Grid>
 

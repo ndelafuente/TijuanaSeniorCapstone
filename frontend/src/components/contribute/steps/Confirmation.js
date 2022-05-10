@@ -3,10 +3,9 @@ import { Container, Grid, List, ListItem, ListItemText, Button } from '@material
 
 const Confirmation = ({ prevStep, nextStep, values }) => {
   console.log(values);
-  const { firstName, lastName, email, username, country, levelOfEducation } = values
   const Continue = e => {
     e.preventDefault();
-    nextStep();
+    nextStep(values);
   }
 
   const Previous = e => {
@@ -18,24 +17,15 @@ const Confirmation = ({ prevStep, nextStep, values }) => {
     <Container  component="main" maxWidth="xs">
       <div>
         <List>
-          <ListItem>
-            <ListItemText primary="Email" secondary={email}/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Username" secondary={username}/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="First Name" secondary={firstName}/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Last Name" secondary={lastName}/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Country of Residence" secondary={country}/>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Level of Education" secondary={levelOfEducation}/>
-          </ListItem>
+          {
+            Object.entries(values).map( ([field, value]) => {
+              return (
+                <ListItem>
+                  <ListItemText primary={field} secondary={value}/>
+                </ListItem>
+              );
+            })
+          }
         </List>
 
         <br />
@@ -57,9 +47,9 @@ const Confirmation = ({ prevStep, nextStep, values }) => {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
             >
-              Confirm & Continue
+              Submit
             </Button>
           </Grid>
         </Grid>

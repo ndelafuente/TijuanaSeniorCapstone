@@ -14,36 +14,27 @@ const ContactDetails = ({ nextStep, handleChange, values }) => {
     <Container  component="main" maxWidth="xs">
       <div>
         <Typography  component="h1" variant="h5">
-          Contact Information
+          Enter your contact information
         </Typography>
         <form>
           <Grid container spacing={2}>
-            {/* first name */}
-            <Grid item xs={12} sm={6}>
+            {/* contact_name */}
+            <Grid item xs={12}>
               <TextField 
-                placeholder="First Name"
-                label="First Name"
-                onChange={handleChange('firstName')}
-                defaultValue={values.firstName}
+                placeholder="Name"
+                label="Name"
+                onChange={handleChange('contact_name')}
+                defaultValue={values.contact_name}
+                fullWidth
               />
             </Grid>
-            {/* last name */}
-            <Grid item xs={12} sm={6}>
-              <TextField 
-                placeholder="Last Name"
-                label="Last Name"
-                onChange={handleChange('lastName')}
-                defaultValue={values.lastName}
-              />
-            </Grid>
-            <br />
 
             {/* email address */}
             <Grid item xs={12}>
               <TextField 
                 placeholder="Email Address"
                 label="Email Address"
-                onChange={handleChange('email')}
+                onChange={handleChange('contact_email')}
                 defaultValue={values.email}
                 // variant="outlined"
                 autoComplete="email"

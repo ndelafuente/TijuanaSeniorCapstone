@@ -9,16 +9,16 @@ export default class ContributeForm extends Component {
 
   state = {
     step: 1,
-    org_name: '',
-    org_type: '',
-    org_description: '',
-    org_website: '',
-    org_email: '',
-    org_address: '',
-    org_city: '',
-    org_state: '',
-    org_zip_code: '',
-    org_country: '',
+    name: '',
+    type: '',
+    description: '',
+    website: '',
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    zip_code: '',
+    country: '',
     
     contact_name: '',
     contact_email: '',
@@ -54,12 +54,56 @@ export default class ContributeForm extends Component {
     console.log(this.state);
   }
 
+  handleSubmit = (values) => {
+    // Extract fields from state
+    const { name, type, description, website, email, address, city, state, zip_code, country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose } = this.state
+    // Create a new dictionary of just the fields
+    const org_values = { name, type, description, website, email, address, city, state, zip_code, country };
+
+    const init = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(org_values)
+    };
+    console.log(init);
+    
+    // TODO implement GET for existing Organization
+    fetch("api/contribute/organization", init)
+    .then(response => {
+      if (response.status > 400) {
+        console.log("Something went wrong!");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("org", data);
+      // let id = data.id;
+    });
+
+    const project_values = { contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
+    init.body = JSON.stringify(project_values);
+    console.log(init);
+    
+    fetch("api/contribute/project", init)
+    .then(response => {
+      if (response.status > 400) {
+        console.log("Something went wrong!", response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("project", data);
+      // let id = data.id;
+    });
+
+  }
+
   render() {
     const { step } = this.state;
     // Extract fields from state
-    const { org_name, org_type, org_description, org_website, org_email, org_address, org_city, org_state, org_zip_code, org_country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose } = this.state
+    const { name, type, description, website, email, address, city, state, zip_code, country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose } = this.state
     // Create a new dictionary of just the fields
-    const values = { org_name, org_type, org_description, org_website, org_email, org_address, org_city, org_state, org_zip_code, org_country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
+    const values = { name, type, description, website, email, address, city, state, zip_code, country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
 
     switch(step) {
       case 1: 
@@ -92,7 +136,7 @@ export default class ContributeForm extends Component {
           return (
             <Confirmation 
               prevStep={ this.prevStep }
-              nextStep={ this.nextStep }
+              nextStep={ this.handleSubmit }
               values={ values }
             />
           )
