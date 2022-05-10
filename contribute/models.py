@@ -13,11 +13,12 @@ class ORGANIZATION(models.Model):
     name = models.CharField(max_length=100)
     ORG_TYPES = (
         ("A", "Academic"),
+        ("M", "Municipal"),
+        ("S", "State"),
         ("F", "Federal"),
         ("I", "International"),
         ("N", "Non-Profit"),
-        ("M", "Municipal"),
-        ("S", "State"),
+        ("i", "Individual"),
         ("O", "Other"),
     )
     type = models.CharField(max_length=10, choices=ORG_TYPES)

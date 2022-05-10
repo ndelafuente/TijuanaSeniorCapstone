@@ -1,6 +1,7 @@
 all: compile start
 
 start: manage.py
+	@open http://localhost:8000
 	python manage.py runserver
 
 compile: migrate webpack
@@ -19,5 +20,9 @@ install: requirements.txt
 	@echo  "Installing the requirements using pip..."
 	@(source venv/bin/activate && pip install --quiet -r requirements.txt)
 	@$(MAKE) --directory=frontend install
+
+gdal:
+	brew install gdal
+	@(source venv/bin/activate && pip install gdal)
 
 .PHONY: webpack

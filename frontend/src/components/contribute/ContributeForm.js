@@ -9,13 +9,31 @@ export default class ContributeForm extends Component {
 
   state = {
     step: 1,
-    email: '',
-    username: '', 
-    password: '',
-    firstName: '',
-    lastName: '',
-    country: '',
-    levelOfEducation: '',
+    org_name: '',
+    org_type: '',
+    org_description: '',
+    org_website: '',
+    org_email: '',
+    org_address: '',
+    org_city: '',
+    org_state: '',
+    org_zip_code: '',
+    org_country: '',
+    
+    contact_name: '',
+    contact_email: '',
+
+    project_name: '',
+    funding_agencies: '',
+    params_default: '',
+    params_other: '',
+    location_name: '',
+    latitude: '',
+    longitude: '',
+    is_active: '',
+    start_date: '',
+    end_date: '',
+    purpose: ''
   }
 
   // go back to previous step
@@ -33,13 +51,16 @@ export default class ContributeForm extends Component {
   // Handle fields change
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
+    console.log(this.state);
   }
 
   render() {
     const { step } = this.state;
-    const { email, username, password, firstName, lastName, country, levelOfEducation } = this.state;
-    const values = { email, username, password, firstName, lastName, country, levelOfEducation }
-    
+    // Extract fields from state
+    const { org_name, org_type, org_description, org_website, org_email, org_address, org_city, org_state, org_zip_code, org_country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose } = this.state
+    // Create a new dictionary of just the fields
+    const values = { org_name, org_type, org_description, org_website, org_email, org_address, org_city, org_state, org_zip_code, org_country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
+
     switch(step) {
       case 1: 
         return (
