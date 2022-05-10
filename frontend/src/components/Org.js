@@ -111,7 +111,7 @@ class OrgForm extends Component {
 
 export default OrgForm;
 
-const container = document.getElementById("contribute");
+const container = document.getElementById("rg");
 
 // Only render if the container is in the DOM
 if (container != null) {

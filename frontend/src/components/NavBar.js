@@ -5,7 +5,7 @@ class NavBar extends Component {
         return (
             <div className="nav">
                 <div className="Logo">
-                    <img className ="Logo" src="../public/Tremlogo.png"width="170" height="120"alt=""></img>
+                    <img className ="Logo" src="Tremlogo.png"width="170" height="120"alt=""></img>
                 </div>
                 <div className='textlinks'> 
                     <ul className = "links">

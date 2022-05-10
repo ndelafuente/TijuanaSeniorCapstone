@@ -9,6 +9,7 @@ class ORGANIZATION(models.Model):
     Information for the organization submitting the form
     """
     objects = OrganizationManager()
+    
     name = models.CharField(max_length=100)
     ORG_TYPES = (
         ("A", "Academic"),
@@ -61,8 +62,8 @@ class PROJECT(models.Model):
     contact_email = models.EmailField()
 
     # 'Who'
-    project_name = models.CharField(max_length=200)
     fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
+    project_name = models.CharField(max_length=200)
     funding_agencies = models.CharField(max_length=200)
 
     # 'What'
