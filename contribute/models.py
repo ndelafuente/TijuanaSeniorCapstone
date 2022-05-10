@@ -33,7 +33,8 @@ class ORGANIZATION(models.Model):
     zip_code = models.IntegerField()
     COUNTRY_CHOICES = (
         ("US", "United States"),
-        ("MX", "Mexico")
+        ("MX", "Mexico"),
+        ("CAN", "Canada")
     )
     country = models.CharField(max_length=20, choices=COUNTRY_CHOICES)
 
