@@ -30,7 +30,7 @@ export default class ContributeForm extends Component {
     location_name: '',
     latitude: '',
     longitude: '',
-    is_active: '',
+    is_active: false,
     start_date: '',
     end_date: '',
     purpose: ''
@@ -50,7 +50,10 @@ export default class ContributeForm extends Component {
 
   // Handle fields change
   handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+    console.log(e.target.type)
+    this.setState({ 
+      [input]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
+    });
     console.log(this.state);
   }
 
@@ -77,24 +80,27 @@ export default class ContributeForm extends Component {
     })
     .then(data => {
       console.log("org", data);
-      // let id = data.id;
+      const fk_organization = data.id;
+      const project_values = { fk_organization, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
+      init.body = JSON.stringify(project_values);
+      console.log(init.body);
+      
+      fetch("api/contribute/project", init)
+      .then(response => {
+        if (response.status > 400) {
+          console.log("Something went wrong!", response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("project", data);
+        // let id = data.id;
+      });
     });
 
-    const project_values = { contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
-    init.body = JSON.stringify(project_values);
-    console.log(init);
     
-    fetch("api/contribute/project", init)
-    .then(response => {
-      if (response.status > 400) {
-        console.log("Something went wrong!", response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("project", data);
-      // let id = data.id;
-    });
+    
+
 
   }
 

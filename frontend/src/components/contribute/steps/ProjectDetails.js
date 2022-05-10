@@ -55,8 +55,8 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="TODO"
                 label="Parameters Measured"
-                onChange={handleChange('')}
-                defaultValue={values.x}
+                onChange={handleChange('params_default')}
+                defaultValue={values.params_default}
                 // variant="outlined"
                 fullWidth
               />
@@ -66,8 +66,8 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
               <TextField 
                 placeholder="(Optional) Enter each one separated by commas"
                 label="Additional Parameters"
-                onChange={handleChange('')}
-                defaultValue={values.x}
+                onChange={handleChange('params_other')}
+                defaultValue={values.params_other}
                 // variant="outlined"
                 fullWidth
               />
@@ -122,7 +122,7 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
             {/* start_date */}
             <Grid item xs={6}>
               <TextField 
-                placeholder="TODO"
+                placeholder="YYYY-MM-DD"
                 label="Start Date"
                 onChange={handleChange('start_date')}
                 defaultValue={values.start_date}
@@ -133,7 +133,7 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
             {/* end_date */}
             <Grid item xs={6}>
               <TextField 
-                placeholder="TODO"
+                placeholder="YYYY-MM-DD"
                 label="End Date"
                 onChange={handleChange('end_date')}
                 defaultValue={values.end_date}
@@ -154,6 +154,7 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
               />
             </Grid>
 
+            {/* FORM BUTTONS */}
             <Grid item xs={12} sm={6}>
               <Button 
                 onClick={ Previous }
