@@ -16,6 +16,7 @@ class ORGANIZATION(models.Model):
         ("F", "Federal"),
         ("I", "International"),
         ("N", "Non-Profit"),
+        ("M", "Municipal"),
         ("S", "State"),
         ("O", "Other"),
     )
