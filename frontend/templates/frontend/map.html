@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.23</title>
+    <!-- <link geo = "import" href = "Contribute/myfile.geojson"> -->
+
 
     <style>
       html,
@@ -57,15 +59,15 @@
           /*
           * Used for pop-up-template displaying data on point
           */
-          title: "ABC License",
-          content: "Name : {Name}"
+          title: "Projects",
+          content: "Project Name : {project_name}"
         };
 
         const geoJSONLayer = new GeoJSONLayer({
           // Sample data
-          url: "https://gissd.sandag.org/rdw/rest/services/Miscellaneous/ABC_Licenses/MapServer/0/query?outFields=*&where=1%3D1&f=geojson",
-          // url: "http://localhost:8000/api/contribute/project?format=json",
-          copyright: "SANDAG/SanGIS",
+          // url: "https://gissd.sandag.org/rdw/rest/services/Miscellaneous/ABC_Licenses/MapServer/0/query?outFields=*&where=1%3D1&f=geojson",
+          url: "http://127.0.0.1:8000/api/contribute/geoJSONlist",
+          // copyright: "SANDAG/SanGIS",
           popupTemplate: template // displays pop-up table
         });
 

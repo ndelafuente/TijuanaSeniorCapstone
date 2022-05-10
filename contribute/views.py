@@ -9,9 +9,10 @@ class OrganizationViewSet(viewsets.ModelViewSet):
     queryset = models.ORGANIZATION.objects.all()
     serializer_class = serializers.OrganizationSerializer
 
-class geoJSONViewSet(generics.ListCreateAPIView):
-    queryset = models.PROJECT.objects.projectasGeoJSON()
-    serializer_class = serializers.ProjectSerializer
+class geoJSONViewSet(generics.ListAPIView):
+    # queryset = models.PROJECT.objects.projectasGeoJSON()
+    queryset = models.PROJECT.objects.all()
+    serializer_class = serializers.GeoSerializer
     
 
 

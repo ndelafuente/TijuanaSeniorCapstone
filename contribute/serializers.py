@@ -1,6 +1,9 @@
 from rest_framework import fields, serializers
 from contribute import models
 from contribute.parameters import PARAM_CHOICES
+from django.contrib.gis.geos import Point
+from rest_framework_gis.serializers import GeoFeatureModelSerializer, GeometrySerializerMethodField
+
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,6 +11,18 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     params_default = fields.MultipleChoiceField(choices=PARAM_CHOICES)
+
+
+class GeoSerializer(GeoFeatureModelSerializer):
+    other_point = GeometrySerializerMethodField()
+
+    def get_other_point(self, obj):
+        return Point(obj.longitude, obj.latitude)
+
+    class Meta:
+        model = models.PROJECT
+        geo_field = 'other_point'
+        fields = '__all__'
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
