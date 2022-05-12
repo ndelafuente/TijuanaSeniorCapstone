@@ -76,16 +76,10 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 multiple
                 id="tags-outlined"
                 options={parameters}
-                // getOptionLabel={(option) => option.label}
                 isOptionEqualToValue={(option, value) => option.value === value}
                 filterSelectedOptions
                 value={values.params_default}
                 onChange={handleChange('params_default')}
-                // onChange={(event, newValue) => {
-                //   let params = newValue.map(option => option.value || option);
-                //   handleChange('params_default', params[0]);
-                //   console.log('onChange', newValue, params);
-                // }}
                 getOptionLabel={(option) => {
                   console.log('getOptionLabel', option, typeof option)
                   if (typeof option === 'number') {
@@ -102,26 +96,6 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                   />
                 )}
               />
-              {/* <Autocomplete
-                multiple
-                value={values.params_default}
-                // onChange={(event, newValue) => {
-                //   setValue(newValue);
-                // }}
-                onChange={handleChange('params_default')}
-                // inputValue={inputValue}
-                // onInputChange={(event, newInputValue) => {
-                //   setInputValue(newInputValue);
-                // }}
-                options={parameters}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Parameters Measured"
-                    placeholder="Begin typing to search options"
-                  />
-                )}
-              /> */}
             </Grid>
             {/* params_other */}
             <Grid item xs={12}>
@@ -167,20 +141,6 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
             </Grid>
 
             {/* https://mui.com/x/react-date-pickers/getting-started/ */}
-            {/* is_active */}
-            <Grid item xs={12}>
-              <FormControlLabel 
-                label="Label"
-                control={
-                  <Checkbox 
-                    onChange={handleChange('is_active')}
-                    checked={values.is_active}
-                    inputProps={{ 'aria-label': 'controlled' }}  
-                    // defaultChecked
-                  />
-                }
-              />
-            </Grid>
             {/* start_date */}
             <Grid item xs={6}>
               <TextField 
@@ -201,6 +161,20 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 defaultValue={values.end_date}
                 // variant="outlined"
                 fullWidth
+              />
+            </Grid>
+            {/* is_active */}
+            <Grid item xs={12}>
+              <FormControlLabel 
+                label="Project is currently active"
+                control={
+                  <Checkbox 
+                    onChange={handleChange('is_active')}
+                    checked={values.is_active}
+                    inputProps={{ 'aria-label': 'controlled' }}  
+                    // defaultChecked
+                  />
+                }
               />
             </Grid>
 
