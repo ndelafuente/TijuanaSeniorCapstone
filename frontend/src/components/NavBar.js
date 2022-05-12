@@ -9,7 +9,7 @@ class NavBar extends Component {
                 </div>
                 <div className='textlinks'> 
                     <ul className = "links">
-                        <button><a href='/'>Home</a></button>
+                        <button><a href='/home'>Home</a></button>
                         <button><a href='/map'>Map</a></button>
                         <button><a href='/about'>About</a></button>
                         <button><a href='/contribute'>Contribute</a></button>
