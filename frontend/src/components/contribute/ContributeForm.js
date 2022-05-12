@@ -25,7 +25,7 @@ export default class ContributeForm extends Component {
 
     project_name: '',
     funding_agencies: '',
-    params_default: '',
+    params_default: [],
     params_other: '',
     location_name: '',
     latitude: '',
@@ -49,11 +49,19 @@ export default class ContributeForm extends Component {
   }
 
   // Handle fields change
-  handleChange = input => e => {
-    console.log(e.target.type)
-    this.setState({ 
-      [input]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    });
+  handleChange = input => (e, newValue) => {
+    if (input === 'params_default') {
+      const params = newValue.map(option => option.value || option);
+      this.setState({
+        [input]: params
+      })
+      console.log('handleChange', params, this.state.params_default)
+    }
+    else {
+      this.setState({ 
+        [input]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
+      });
+    }
     console.log(this.state);
   }
 

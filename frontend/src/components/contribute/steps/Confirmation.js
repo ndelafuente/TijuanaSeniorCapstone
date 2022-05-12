@@ -1,5 +1,10 @@
 import React from 'react'
-import { Container, Grid, List, ListItem, ListItemText, Button } from '@material-ui/core'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import Button from '@mui/material/Button'
 
 const Confirmation = ({ prevStep, nextStep, values }) => {
   console.log(values);

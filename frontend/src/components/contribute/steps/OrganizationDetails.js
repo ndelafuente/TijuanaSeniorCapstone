@@ -1,14 +1,13 @@
 import React from 'react'
-import {
-  Container,
-  Typography,
-  Grid,
-  TextField,
-  Button,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select } from '@material-ui/core'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
 
 const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
   
@@ -62,7 +61,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             </Grid>
             
             {/* type of organization */}
-            <Grid item xs={12}>
+            <Grid item xs={4}>
               <FormControl fullWidth>
                 <InputLabel id="org-type-label">Type</InputLabel>
                 <Select 
@@ -89,7 +88,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
             </Grid>
 
             {/* organization website */}
-            <Grid item xs={12}>
+            <Grid item xs={8}>
               <TextField 
                 placeholder="https://my-org.net"
                 label="Website"
@@ -120,7 +119,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={8}>
               <TextField 
                 label="City"
                 onChange={handleChange('city')}
@@ -129,7 +128,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <TextField 
                 label="State"
                 onChange={handleChange('state')}
@@ -138,7 +137,7 @@ const OrganizationDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6}>
               <TextField 
                 label="ZIP Code"
                 onChange={handleChange('zip_code')}

@@ -1,6 +1,9 @@
 import React from 'react'
-// import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Grid, TextField, Button } from '@material-ui/core'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 const ContactDetails = ({ nextStep, handleChange, values }) => {
   

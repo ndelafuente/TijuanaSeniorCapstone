@@ -1,12 +1,12 @@
 import React from 'react'
-import {
-  Container,
-  Typography,
-  Grid,
-  TextField,
-  Button,
-  FormControlLabel,
-  Checkbox } from '@material-ui/core'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import Autocomplete from '@mui/material/Autocomplete'
 
 const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
   
@@ -19,6 +19,14 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
     e.preventDefault();
     prevStep();
   }
+
+  const parameters = [
+    { value: 101, label: 'Air Temperature' },
+    { value: 102, label: 'Battery' },
+    // { value: 103, label: 'Cadmium Level' },
+    // { value: 104, label: 'MOCD' },
+    // { value: 105, label: 'Chemical Oxygen Demand' }
+  ];
 
   return (
     <Container  component="main" maxWidth="xs">
@@ -51,7 +59,8 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
               />
             </Grid>
             {/* params_default */}
-            <Grid item xs={12}>
+            {/* https://mui.com/material-ui/react-autocomplete/#controlled-states */}
+            {/* <Grid item xs={12}>
               <TextField 
                 placeholder="TODO"
                 label="Parameters Measured"
@@ -60,6 +69,59 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 // variant="outlined"
                 fullWidth
               />
+            </Grid> */}
+            <Grid item xs={12}>
+              <Autocomplete
+                // name="params_default"
+                multiple
+                id="tags-outlined"
+                options={parameters}
+                // getOptionLabel={(option) => option.label}
+                isOptionEqualToValue={(option, value) => option.value === value}
+                filterSelectedOptions
+                value={values.params_default}
+                onChange={handleChange('params_default')}
+                // onChange={(event, newValue) => {
+                //   let params = newValue.map(option => option.value || option);
+                //   handleChange('params_default', params[0]);
+                //   console.log('onChange', newValue, params);
+                // }}
+                getOptionLabel={(option) => {
+                  console.log('getOptionLabel', option, typeof option)
+                  if (typeof option === 'number') {
+                    return parameters.find(item => item.value === option)?.label;
+                  } else {
+                    return option.label;
+                  }
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Parameters Measured"
+                    placeholder="Type to filter"
+                  />
+                )}
+              />
+              {/* <Autocomplete
+                multiple
+                value={values.params_default}
+                // onChange={(event, newValue) => {
+                //   setValue(newValue);
+                // }}
+                onChange={handleChange('params_default')}
+                // inputValue={inputValue}
+                // onInputChange={(event, newInputValue) => {
+                //   setInputValue(newInputValue);
+                // }}
+                options={parameters}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Parameters Measured"
+                    placeholder="Begin typing to search options"
+                  />
+                )}
+              /> */}
             </Grid>
             {/* params_other */}
             <Grid item xs={12}>
