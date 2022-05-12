@@ -81,7 +81,6 @@ const ProjectDetails = ({ prevStep, nextStep, handleChange, values }) => {
                 value={values.params_default}
                 onChange={handleChange('params_default')}
                 getOptionLabel={(option) => {
-                  console.log('getOptionLabel', option, typeof option)
                   if (typeof option === 'number') {
                     return parameters.find(item => item.value === option)?.label;
                   } else {

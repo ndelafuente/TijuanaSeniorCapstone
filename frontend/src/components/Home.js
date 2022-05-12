@@ -38,5 +38,4 @@ const container = document.getElementById("home");
 // Only render if the container is in the DOM
 if (container != null) {
   render(<Home />, container);
-  console.log("App", container);
 }

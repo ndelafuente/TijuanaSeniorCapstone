@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText'
 import Button from '@mui/material/Button'
 
 const Confirmation = ({ prevStep, nextStep, values }) => {
-  console.log(values);
+
   const Continue = e => {
     e.preventDefault();
     nextStep(values);

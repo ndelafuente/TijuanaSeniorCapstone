@@ -105,10 +105,8 @@ export default class ContributeForm extends Component {
         // let id = data.id;
       });
     });
-
     
-    
-
+    this.nextStep()
 
   }
 
@@ -154,7 +152,7 @@ export default class ContributeForm extends Component {
               values={ values }
             />
           )
-      case 4: 
+      case 5: 
         return (
           <div>
             <h1>You are done!</h1>

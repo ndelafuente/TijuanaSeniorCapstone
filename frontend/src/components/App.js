@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import { render } from "react-dom"
 
 import './App.css';
-import OrgPage from './Org'
-import AlvarosMap from "./AlvarosMap";
 import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log("constructing");
+
     this.state = {
       data: [],
       loaded: false,
@@ -22,7 +20,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("rendering");
     return (
       <div className="App">
         <NavBar />
