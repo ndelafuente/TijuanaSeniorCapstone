@@ -6,18 +6,6 @@
   <!-- <link geo = "import" href = "Contribute/myfile.geojson"> -->
 
 
-  <style>
-    html,
-    body,
-    #viewDiv {
-      padding-top: 30px;
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      display: flex;
-    }
-  </style>
-
   <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
 
   <script src="https://js.arcgis.com/4.23/"></script>
@@ -82,5 +70,5 @@
 {% endblock %}
 
 {% block page %}
-    <div id="viewDiv"></div>
+    <div class="content" id="viewDiv"></div>
 {% endblock %}

@@ -6,14 +6,24 @@
   {% block head %} 
   <!-- Additional head elements will go here -->
   {% endblock %}
-  <title>Django REST with React</title>
+  <title>Water Justice Exchange</title>
+  <style>
+    .content {
+      padding-top: 25px;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      display: flex;
+    }
+  </style>
+
 </head>
 <body>
   <div id="navbar">
     <!-- NavBar will load here -->
   </div>
   {% block page %}
-    <div id="home">
+    <div class="content" id="home">
         <p>Home Page couldn't load :(</p>
         <!-- React will load here -->
     </div>
