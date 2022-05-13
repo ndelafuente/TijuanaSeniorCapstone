@@ -6,14 +6,22 @@ I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-
 
 1. **Node.js**
     
-    (On mac, you can use homebrew to install it from the command line)
+    (On mac, you can use [homebrew](https://brew.sh) to install it from the command line)
 
         brew install npm
 
 2. **Python 3.10** ([install here](https://www.python.org/downloads/))
 
-### Setup
+    Or with homebrew
+
+        brew install python@3.10
+
+### Setting up the environment
 1. Clone this repository into your desired folder and cd into it
+
+        git clone https://github.com/ndelafuente/TijuanaSeniorCapstone.git
+        cd TijuanaSeniorCapstone
+
     **Are you now in `TijuanaRiverWatershed`? Okay, let's begin**
 
 1. If you have Anaconda installed, you should run the following to deactivate the conda virtual environment: `(base)`
@@ -30,7 +38,7 @@ I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-
     
     If `Python 3.10.x` is not printed:
     
-    a) If you just downloaded Python, quit the application you are using, and reopen it
+    a) If you just downloaded Python from python.org, you will need to restart your terminal/IDE
     
     b) If you still do not have the correct version, ensure you are in the base directory of this folder, and run one of the following:
     
@@ -40,36 +48,25 @@ I used [this tutorial by Valentino](https://www.valentinog.com/blog/drf/#django-
     
         ./find_cmd python3 3.10 ~/.bash_profile # for bash
     
-    Then restart your application.
+    This script will attempt to find all instances of python 3.10. You will then select a version and it will add its path to your shell profile. 
     
-    *You should now hopefully be using Python 3.10*
+    *Restart your terminal, you should now hopefully be using Python 3.10*
 
 1. Run the following commands to set up your python virtual environment and install the required dependencies
 
         python3 -m pip install --user --upgrade pip
-        python3 -m venv --clear venv
-        source venv/bin/activate
-        python3 -m pip install -r requirements.txt
+        make install
 
-1. Still in the main folder run the following to set up JavaScript libraries
+1. You will also need to install [GDAL](https://gdal.org/download.html) (this may take a while)
 
-        cd ./frontend && npm install --no-fund && cd ..
-
+        make gdal
 
 ### Running the server
-1. Move into the frontend folder, run webpack, then move back up to the home folder
+1. All you have to do is:
 
-        cd ./frontend && npm run dev && cd ..
-
-1. Migrate the database
-
-        python manage.py migrate
-
-1. Start the development server
-
-        python manage.py runserver
+        make
 
 ### Additional Documentation
 
 1. [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
-2. [Arc GIS API](https://github.com/Esri/react-arcgis)
+2. [ArcGIS ReactJS API](https://github.com/Esri/react-arcgis)
