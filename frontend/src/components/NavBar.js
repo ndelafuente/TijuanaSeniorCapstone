@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import "./NavBar.css"
+
 class NavBar extends Component {
     render() {
         return (
