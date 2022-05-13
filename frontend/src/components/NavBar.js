@@ -21,3 +21,10 @@ class NavBar extends Component {
     
 }
 export default NavBar;
+
+const container = document.getElementById("navbar");
+
+// Only render if the container is in the DOM
+if (container != null) {
+  render(<NavBar />, container);
+}

@@ -3,12 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block head %} 
+  <!-- Additional head elements will go here -->
+  {% endblock %}
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <title>Django REST with React</title>
 </head>
 <body>
-<div id="app">
-    <!-- React will load here -->
-</div>
+  <div id="navbar">
+    <!-- NavBar will load here -->
+  </div>
+  {% block page %}
+    <div id="home">
+        <p>Home Page couldn't load :(</p>
+        <!-- React will load here -->
+    </div>
+  {% endblock %}
 </body>
 {% load static %}
 <script src="{% static "frontend/main.js" %}"></script>
