@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { render } from "react-dom"
+import { Box, Stepper, Step, StepLabel } from '@mui/material'
 import ContactDetails from "./steps/ContactDetails"
 import OrganizationDetails from "./steps/OrganizationDetails"
 import ProjectDetails from "./steps/ProjectDetails"
@@ -117,50 +118,60 @@ export default class ContributeForm extends Component {
     // Create a new dictionary of just the fields
     const values = { name, type, description, website, email, address, city, state, zip_code, country, contact_name, contact_email, project_name, funding_agencies, params_default, params_other, location_name, latitude, longitude, is_active, start_date, end_date, purpose };
 
-    switch(step) {
-      case 1: 
-        return (
-          <ContactDetails 
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
-        )
-      case 2: 
-        return (
-          <OrganizationDetails 
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
-        )
-      case 3: 
-        return (
-          <ProjectDetails 
-            prevStep={ this.prevStep }
-            nextStep={ this.nextStep }
-            handleChange={ this.handleChange }
-            values={ values }
-          />
-        )
-      case 4: 
-          return (
-            <Confirmation 
-              prevStep={ this.prevStep }
-              nextStep={ this.handleSubmit }
-              values={ values }
-            />
-          )
-      case 5: 
-        return (
-          <div>
-            <h1>You are done!</h1>
-          </div>
-        )
-      default: 
-          // do nothing
+    let page;
+    if (step === 1) {
+      page = <ContactDetails 
+        nextStep={ this.nextStep }
+        handleChange={ this.handleChange }
+        values={ values }
+      />;
+    } else if (step === 2) {
+      page = <OrganizationDetails 
+        prevStep={ this.prevStep }
+        nextStep={ this.nextStep }
+        handleChange={ this.handleChange }
+        values={ values }
+      />;
+    } else if (step === 3) {
+      page = <ProjectDetails 
+        prevStep={ this.prevStep }
+        nextStep={ this.nextStep }
+        handleChange={ this.handleChange }
+        values={ values }
+      />;
+    } else if (step === 4) {
+      page = <Confirmation 
+        prevStep={ this.prevStep }
+        nextStep={ this.handleSubmit }
+        values={ values }
+      />;
+    } else if (step === 5) {
+      page = <h1>You are done!</h1>;
+    } else {
+      page = <h1>Error Invalid state</h1>
     }
+
+    const steps = [
+      'Contact Info',
+      'Organization',
+      'Project Details',
+      'Submit'
+    ];
+
+    return (
+      <Box sx={{ width: '50%', margin: 'auto' }}>
+        <Box sx={{padding: 5}}>
+          <Stepper activeStep={step-1} alternativeLabel>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+        {page}
+      </Box>
+    )
   }
 }
 
