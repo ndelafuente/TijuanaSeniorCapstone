@@ -3,7 +3,7 @@
     background-color: rgb(255, 255, 255);
     grid-template-columns: 400px 400px auto;
 }
-
+/*
 .home .img {
   color: black;
   position: relative;
@@ -49,5 +49,5 @@
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 600px;
   font-style:normal;
-}
+} */
 /* END Home */

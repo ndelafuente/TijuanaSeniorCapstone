@@ -1,27 +1,60 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { render } from "react-dom";
-import "./NavBar.css"
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+
+function ElevationScroll(props) {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
+
+  return React.cloneElement(props.children, {
+    elevation: trigger ? 4 : 0,
+  });
+}
 
 class NavBar extends Component {
-    render() {
-        return (
-            <div className="nav">
-                <div className="Logo">
-                    <img className ="Logo" src="Tremlogo.png"width="170" height="120"alt=""></img>
-                </div>
-                <div className='textlinks'> 
-                    <ul className = "links">
-                        <button><a href='/home'>Home</a></button>
-                        <button><a href='/map'>Map</a></button>
-                        <button><a href='/about'>About</a></button>
-                        <button><a href='/contribute'>Contribute</a></button>
-                    </ul>
-                </div>
-            </div>
-        );
-    }
-    
+  render(props) {
+    return (
+      <div>
+        <CssBaseline />
+        <ElevationScroll {...props}>
+          <AppBar>
+            <Toolbar>
+              <Box sx={{ padding: 2 }}>
+                <img
+                  src="https://picsum.photos/50"
+                  alt="logo"
+                  loading="lazy"
+                />
+              </Box>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Button color="inherit" href="/">Home</Button>
+                <Button color="inherit" href="/map">Map</Button>
+                <Button color="inherit" href="/contribute">Contribute</Button>
+                <Button color="inherit" href="/about">About</Button>
+              </Typography>
+              <Button color="inherit" href="/admin">Admin</Button>
+            </Toolbar>
+          </AppBar>
+        </ElevationScroll>
+        <Toolbar />
+        {/* <Container>
+          // should something go here?
+        </Container> */}
+      </div>
+    );
+  }
 }
+
 export default NavBar;
 
 const container = document.getElementById("navbar");
