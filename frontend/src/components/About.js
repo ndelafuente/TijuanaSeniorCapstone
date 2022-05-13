@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import "./Home.css"
+import "./About.css"
 
-class Home extends Component {
+class About extends Component {
     render() {
         return (
             <div className="home">
@@ -14,7 +14,7 @@ class Home extends Component {
                 <div className="text">
                     
                     <p className="intro1"></p>
-                    <h2 className="intro0">A brief introduction</h2>
+                    <h2 className="intro0">A Brief Introduction</h2>
                     <p className="intro2">- The Tijuana River Watershed (TRW) is a binational water basin that spans 1,750 sq miles across the U.S.-Mexican border, with 75% of the watershed based in Mexico. It provides habitats for plants and animals as well as drinking water for people and wildlife. Water quality monitoring efforts are important in providing empirical evidence to support decision making on health and environmental issues.
                     <br></br><br></br>- Multiple agencies lead monitoring efforts in different parts of the TRW with little communication and coordination among them, leading to issues around data transparency and accessibility and limiting overall watershed management and protection efforts.
 
@@ -33,11 +33,11 @@ class Home extends Component {
     }
     
 }
-export default Home;
+export default About;
 
-const container = document.getElementById("home");
+const container = document.getElementById("about");
 
 // Only render if the container is in the DOM
 if (container != null) {
-  render(<Home />, container);
+  render(<About />, container);
 }
