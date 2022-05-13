@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { render } from "react-dom"
-import { Box, Stepper, Step, StepLabel } from '@mui/material'
+import { Box, Stepper, Step, StepLabel, Button } from '@mui/material'
 import ContactDetails from "./steps/ContactDetails"
 import OrganizationDetails from "./steps/OrganizationDetails"
 import ProjectDetails from "./steps/ProjectDetails"
@@ -146,7 +146,12 @@ export default class ContributeForm extends Component {
         values={ values }
       />;
     } else if (step === 5) {
-      page = <h1>You are done!</h1>;
+      page = <div>
+        <h1>Thank you for submitting!</h1>;
+        <Button href="/map" variant="contained" color="primary">
+          See it on the map
+        </Button>
+      </div>;
     } else {
       page = <h1>Error Invalid state</h1>
     }
