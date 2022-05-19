@@ -6,8 +6,8 @@
     "private": true,
     "scripts": {
         "test": "react-scripts test",
-        "dev": "webpack --mode development --entry ./src/index.js --output-path ./static/frontend",
-        "build": "webpack --mode production --entry ./src/index.js --output-path ./static/frontend"
+        "dev": "webpack --mode development",
+        "build": "webpack --mode production"
     },
     "keywords": [],
     "author": "",

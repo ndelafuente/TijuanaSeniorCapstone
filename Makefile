@@ -1,13 +1,16 @@
-all: compile start
+dev: webpack-dev migrate start
+
+build: webpack-build migrate start
 
 start: manage.py
 	@open http://localhost:8000
 	@(source venv/bin/activate && python manage.py runserver)
 
-compile: migrate webpack
+webpack-dev:
+	@$(MAKE) --always-make --directory=frontend dev
 
-webpack:
-	@$(MAKE) --always-make --directory=frontend
+webpack-build:
+	@$(MAKE) --always-make --directory=frontend build
 
 migrate:
 	@(echo "Migrating Django database")
