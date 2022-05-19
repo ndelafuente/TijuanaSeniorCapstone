@@ -2,7 +2,7 @@
 
 {% block head %}
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.23</title>
+  <title>TREM | Map</title>
   <!-- <link geo = "import" href = "Contribute/myfile.geojson"> -->
 
 
@@ -69,28 +69,27 @@
   </script>
   <style>
     .left {
-      position: relative;
-      width: 50%;
+      position: fixed;
+      width: 67%;
       float: left;
       height: 100%;
-      background-color: #282828;
       z-index: 1010101010
     }
 
     .right {
       position: relative;
-      width: 50%;
-      float: left;
-      height: 100%;
-      background-color: #0080ff;
-      z-index: 1010101010
+      width: 33%;
+      float: right;
+      color: #fff;
     }
   </style>
 {% endblock %}
 
 {% block content %}
-    <div class="content left" id="viewDiv"></div>
-    <div class="content right">
-      <h1>This is the right half of a page</h1>
+    <div class="content left" id="viewDiv">
+      <!-- Map will load here -->
+    </div>
+    <div class="content right" id="cardList">
+      <!-- Card list will load here -->
     </div>
 {% endblock %}

@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
-import render from 'react-dom';
+import React, { Component } from "react";
+import { render } from "react-dom";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Container from "@mui/material/Container";
 
-export default class CardList extends Component {
+class CardList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,9 +16,9 @@ export default class CardList extends Component {
     }
   }
   componentDidMount() {
-    const init = {method: 'GET'}
+    const init = {method: 'GET'};
 
-    fetch("https://jsonplaceholder.typicode.com/posts", init)
+    fetch("api/contribute/project", init)
       .then(response => response.json())
       .then((json) => {
         console.log(json);
@@ -27,20 +28,20 @@ export default class CardList extends Component {
       });
   }
   render() {
-    return this.state.projects.map((project) =>
+    const cardList = this.state.projects.map((project) =>
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           height="140"
-          image="https://picsum.photos/345/140"
-          alt="TODO: green iguana"
+          image="https://picsum.photos/id/912/345/140"
+          alt="TODO, nice photo of water"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {project.title}
+            {project.project_name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {project.body}
+            {project.purpose}
           </Typography>
         </CardContent>
         <CardActions>
@@ -49,8 +50,12 @@ export default class CardList extends Component {
         </CardActions>
       </Card>
     );
+
+    return <Container>{cardList}</Container>
   }
 }
+
+export default CardList;
 
 const container = document.getElementById("cardList");
 
