@@ -31,8 +31,9 @@ class NavBar extends Component {
             <Toolbar>
               <Box sx={{ padding: 2 }}>
                 <img
-                  src="https://picsum.photos/50"
+                  src="static/logo.png"
                   alt="logo"
+                  width="50px"
                   loading="lazy"
                 />
               </Box>
