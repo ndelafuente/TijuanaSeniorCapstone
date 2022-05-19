@@ -67,8 +67,30 @@
     });
 
   </script>
+  <style>
+    .left {
+      position: relative;
+      width: 50%;
+      float: left;
+      height: 100%;
+      background-color: #282828;
+      z-index: 1010101010
+    }
+
+    .right {
+      position: relative;
+      width: 50%;
+      float: left;
+      height: 100%;
+      background-color: #0080ff;
+      z-index: 1010101010
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
-    <div class="content" id="viewDiv"></div>
+    <div class="content left" id="viewDiv"></div>
+    <div class="content right">
+      <h1>This is the right half of a page</h1>
+    </div>
 {% endblock %}

@@ -83,7 +83,8 @@ export default class ContributeForm extends Component {
     fetch("api/contribute/organization", init)
     .then(response => {
       if (response.status > 400) {
-        console.log("Something went wrong!");
+          console.log("Something went wrong!", response.statusText);
+          alert("Something went wrong, check console for output");
       }
       return response.json();
     })
@@ -98,16 +99,19 @@ export default class ContributeForm extends Component {
       .then(response => {
         if (response.status > 400) {
           console.log("Something went wrong!", response.statusText);
-        }
+          alert("Something went wrong, check console for output");
+      }
         return response.json();
       })
       .then(data => {
         console.log("project", data);
         // let id = data.id;
+        if(confirm("Are you sure you want to move on?")) {
+          this.nextStep()
+        }
       });
     });
     
-    this.nextStep()
 
   }
 
