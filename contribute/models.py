@@ -1,6 +1,6 @@
 from django.db import models
 from multiselectfield import MultiSelectField
-from contribute.query import *
+from contribute import managers
 
 import contribute.parameters as pm
 
@@ -8,7 +8,7 @@ class ORGANIZATION(models.Model):
     """
     Information for the organization submitting the form
     """
-    objects = OrganizationManager()
+    objects = managers.OrganizationManager()
     
     name = models.CharField(max_length=100)
     ORG_TYPES = (
@@ -53,7 +53,7 @@ class PROJECT(models.Model):
         - There should be a predetermined list for the user to choose from.
         - And the user should be able to select multiple at once
     """
-    objects = ProjectManager()
+    objects = managers.ProjectManager()
 
     # Auto-generated data
     created_at = models.DateTimeField(auto_now_add=True)
