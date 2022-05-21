@@ -41,11 +41,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'multiselectfield', # from https://pypi.org/project/django-multiselectfield/
+    'django_filters',
     'rest_framework',
     'rest_framework_gis',
     'contribute.apps.ContributeConfig',
     'frontend',
 ]
+
+# Reference: https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

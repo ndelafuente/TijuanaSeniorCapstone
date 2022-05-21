@@ -1,20 +1,27 @@
 # search query stuff will go here
 from django.db import models
-import json
-import urllib
-
-
-
-from django.core import serializers
 from contribute.parameters import PARAM_CHOICES
 
+"""Searching for multiple criteria"""
+# def filter_by_user_input(self, user_input):
+#     return self.filter(
+#         models.Q(title__icontains=user_input) |
+#         models.Q(genre__icontains=user_input) |
+#         models.Q(author__name__icontains=user_input)
+#     )
+
+class OrganizationManager(models.Manager):
+    def organizationASC(self):
+        return self.all().order_by('name')
+        #call: ORGANIZATION.organizationObjects.organizationASC()
 
 class ProjectManager(models.Manager):
     def projectASC(self):
         return self.all().order_by('project_name')
         #call: PROJECT.objects.projectASC()
 
-    # # # the - sorts in reverse order
+    """Deprecated: """
+    # The minus sign (-) sorts in reverse order
     # def projectNEWEST(self):
     #     return self.all().order_by('-start_date')
     #     #call: PROJECT.objects.projectNEWEST()
@@ -40,16 +47,16 @@ class ProjectManager(models.Manager):
     #     #call: PROJECT.objects.projectbyLOC()
 
     # def filterwithPARAM(self, user_input):
-    #   return self.filter(params_default__icontains=user_input)
-    #   #call: PROJECT.objects.filterwithPARAM()
+    #     return self.filter(params_default__icontains=user_input)
+    #     #call: PROJECT.objects.filterwithPARAM()
 
+
+    """Deprecated: replaced by GeoSerializer in serializers.py"""
     # def projectasGeoJSON(objects):
     #     query = objects.all()
     #     data = list(query.values())
     #     print(data)
         
-
-
     #     geojson = {
     #         "type": "FeatureCollection",
     #         "features": [
@@ -82,29 +89,5 @@ class ProjectManager(models.Manager):
     #     }
     #     print("\ngeojson\n")
     #     print(geojson)
-    #     output = json.dumps(geojson)
-    #     # with open('myfile.geojson', 'w') as f:
-    #     #     json.dump(geojson, f)
-    #     return output
-    #     # return data
+    #     return geojson
     #     #call: PROJECT.objects.projectsasGeoJSON()
-
-
-class OrganizationManager(models.Manager):
-    def organizationASC(self):
-        return self.all().order_by('name')
-        #call: ORGANIZATION.organizationObjects.organizationASC()
-            
-
-class LocationManager(models.Manager):
-    def locationASC(self):
-        return self.all().order_by('location_name')
-        #call: LOCATION.locationObjects.locationASC()
-
-
-
-#Search for multiple criteria
-# def filter_by_user_input(self, user_input):
-#       return self.filter(models.Q(title__icontains=user_input) |
-#                          models.Q(genre__icontains=user_input) |
-#                          models.Q(author__name__icontains=user_input))

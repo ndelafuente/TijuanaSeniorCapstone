@@ -1,4 +1,5 @@
 django
+django-filter
 djangorestframework
 djangorestframework-gis
 django-multiselectfield
