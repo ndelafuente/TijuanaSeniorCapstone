@@ -66,14 +66,14 @@ class PROJECT(models.Model):
     # 'Who'
     fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
     project_name = models.CharField(max_length=200)
-    funding_agencies = models.CharField(max_length=200)
+    funding_agencies = models.CharField(max_length=200, blank=True)
 
     # 'What'
     params_default = MultiSelectField(
         choices=pm.PARAM_CHOICES,
         max_choices=len(pm.PARAM_CHOICES)
     )
-    params_other = models.CharField(max_length=200, default=None)
+    params_other = models.CharField(max_length=200, blank=True)
 
     # 'Where'
     location_name = models.CharField(max_length=200)
@@ -83,7 +83,7 @@ class PROJECT(models.Model):
     # 'When'
     is_active = models.BooleanField(default=False)
     start_date = models.DateField()
-    end_date = models.DateField(default=None)
+    end_date = models.DateField(null=True, blank=True)
 
     # 'Why'
     purpose = models.TextField(max_length=400)
