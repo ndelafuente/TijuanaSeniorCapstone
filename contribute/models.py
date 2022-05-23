@@ -4,7 +4,7 @@ from contribute import managers
 
 import contribute.parameters as pm
 
-class ORGANIZATION(models.Model):
+class Organization(models.Model):
     """
     Information for the organization submitting the form
     """
@@ -43,7 +43,7 @@ class ORGANIZATION(models.Model):
     def __str__(self):
         return self.name
 
-class PROJECT(models.Model):
+class Project(models.Model):
     """
     Information about the projects/monitoring status of the research
 
@@ -64,7 +64,7 @@ class PROJECT(models.Model):
     contact_email = models.EmailField()
 
     # 'Who'
-    fk_organization = models.ForeignKey(ORGANIZATION, on_delete=models.PROTECT)
+    fk_organization = models.ForeignKey(Organization, on_delete=models.PROTECT)
     project_name = models.CharField(max_length=200)
     funding_agencies = models.CharField(max_length=200, blank=True)
 

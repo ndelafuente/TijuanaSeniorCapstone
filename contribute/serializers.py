@@ -9,7 +9,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer, GeometrySe
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.PROJECT
+        model = models.Project
         fields = serializers.ALL_FIELDS
         # use `exlude` instead of `fields` to igrore specific fields
         # exclude = ['example_field_name'] 
@@ -57,12 +57,12 @@ class GeoSerializer(GeoFeatureModelSerializer):
         return Point(obj.longitude, obj.latitude)
 
     class Meta:
-        model = models.PROJECT
+        model = models.Project
         geo_field = 'other_point'
         fields = serializers.ALL_FIELDS
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.ORGANIZATION
+        model = models.Organization
         fields = serializers.ALL_FIELDS

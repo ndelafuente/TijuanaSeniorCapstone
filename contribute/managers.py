@@ -13,42 +13,42 @@ from contribute.parameters import PARAM_CHOICES
 class OrganizationManager(models.Manager):
     def organizationASC(self):
         return self.all().order_by('name')
-        #call: ORGANIZATION.organizationObjects.organizationASC()
+        #call: Organization.organizationObjects.organizationASC()
 
 class ProjectManager(models.Manager):
     def projectASC(self):
         return self.all().order_by('project_name')
-        #call: PROJECT.objects.projectASC()
+        #call: Project.objects.projectASC()
 
     """Deprecated: """
     # The minus sign (-) sorts in reverse order
     # def projectNEWEST(self):
     #     return self.all().order_by('-start_date')
-    #     #call: PROJECT.objects.projectNEWEST()
+    #     #call: Project.objects.projectNEWEST()
 
     # def projectOLDEST(self):
     #     return self.all().order_by('start_date')
-    #     #call: PROJECT.objects.projectOLDEST()
+    #     #call: Project.objects.projectOLDEST()
 
     # def projectACTIVE(self):
     #     return self.filter(is_active=True)
-    #     #call: PROJECT.objects.projectACTIVE()
+    #     #call: Project.objects.projectACTIVE()
 
     # def projectCOMPLETED(self):
     #     return self.filter(is_active=False)
-    #     #call: PROJECT.objects.projectCOMPLETED()
+    #     #call: Project.objects.projectCOMPLETED()
 
     # def projectbyORG(self, user_input):
     #     return self.filter(fk_organization=user_input)
-    #     #call: PROJECT.objects.projectbyORG()
+    #     #call: Project.objects.projectbyORG()
 
     # def projectbyLOC(self, user_input):
     #     return self.filter(location_name=user_input)
-    #     #call: PROJECT.objects.projectbyLOC()
+    #     #call: Project.objects.projectbyLOC()
 
     # def filterwithPARAM(self, user_input):
     #     return self.filter(params_default__icontains=user_input)
-    #     #call: PROJECT.objects.filterwithPARAM()
+    #     #call: Project.objects.filterwithPARAM()
 
 
     """Deprecated: replaced by GeoSerializer in serializers.py"""
@@ -90,4 +90,4 @@ class ProjectManager(models.Manager):
     #     print("\ngeojson\n")
     #     print(geojson)
     #     return geojson
-    #     #call: PROJECT.objects.projectsasGeoJSON()
+    #     #call: Project.objects.projectsasGeoJSON()
