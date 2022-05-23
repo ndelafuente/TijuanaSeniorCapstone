@@ -59,19 +59,20 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     is_approved = models.BooleanField(default=False)
 
-    # Contact Info
-    contact_name = models.CharField(max_length=100)
-    contact_email = models.EmailField()
-
     # 'Who'
     fk_organization = models.ForeignKey(Organization, on_delete=models.PROTECT)
     project_name = models.CharField(max_length=200)
     funding_agencies = models.CharField(max_length=200, blank=True)
 
+    # Contact Info
+    contact_name = models.CharField(max_length=100)
+    contact_email = models.EmailField()
+
     # 'What'
     params_default = MultiSelectField(
         choices=pm.PARAM_CHOICES,
-        max_choices=len(pm.PARAM_CHOICES)
+        max_choices=len(pm.PARAM_CHOICES),
+        # TODO make optional
     )
     params_other = models.CharField(max_length=200, blank=True)
 
