@@ -17,6 +17,12 @@ migrate:
 	@(source venv/bin/activate && python manage.py makemigrations)
 	@(source venv/bin/activate && python manage.py migrate)
 
+test:
+	@(source venv/bin/activate && coverage run manage.py test; \
+	  coverage html --skip-empty --omit=manage.py,"*/migrations/*" \
+	)
+	@(open $(PWD)/htmlcov/index.html && echo "Opening report in your browser")
+
 install: requirements.txt
 	@echo "Ensuring that the virtual environment exists..."
 	@test -d venv || python3 -m venv --copies venv
